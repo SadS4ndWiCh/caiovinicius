@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Seo } from '../Seo';
 import { Link } from '../Link';
 
-import styles from '@styles/components/Header.module.scss';
+import styles from '@styles/components/Layouts/Header.module.scss';
 
 interface HeaderProps {
   title?: string;
