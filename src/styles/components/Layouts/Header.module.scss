@@ -1,0 +1,36 @@
+.headerContainer {
+  padding: 3rem 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: .5rem;
+    background: linear-gradient(90deg, #273BEB, #EB27CC, #D61E1E);
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+  
+    ul {
+      display: flex;
+      gap: .5rem;
+      list-style: none;
+
+      a {
+        padding: 1rem 1.5rem;
+        font-size: 1.3rem;
+        text-decoration: none;
+        color: var(--clr-text);
+
+        &.linkHighlight, &:hover {
+          background-color: var(--clr-gray-2);
+        }
+      }
+    }
+  }
+}
