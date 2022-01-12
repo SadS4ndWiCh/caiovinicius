@@ -35,7 +35,10 @@ export const Header = ({ title, description, ogImage }: HeaderProps) => {
         <ul>
           { navLinks.map(link => (
             <li key={link.label}>
-              <Link href={link.destination}>
+              <Link
+                href={link.destination}
+                className={isCurrentPath(link.destination) ? styles.linkHighlight : ''}
+              >
                 { link.label }
               </Link>
             </li>
