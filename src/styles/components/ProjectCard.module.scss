@@ -1,0 +1,73 @@
+.projectCardContainer {
+  display: flex;
+  gap: 1rem;
+
+  padding: 2rem;
+
+  border: 1px solid var(--clr-gray-2);
+  border-radius: .8rem;
+}
+
+.thumb {
+  height: fit-content;
+
+  flex-shrink: 0;
+  padding: 1rem;
+
+  border-radius: .8rem;
+
+  line-height: 0;
+
+  background-color: var(--clr-gray-2);
+}
+
+.details {
+  h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--clr-title);
+  }
+
+  p {
+    font-size: 1.4rem;
+    letter-spacing: .05rem;
+    line-height: 1.5em;
+    color: var(--clr-text);
+  }
+}
+
+.screenshots {
+  margin-top: 1rem;
+}
+
+.links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+
+  a {
+    line-height: 0;
+  }
+
+  .sourceCode {
+    padding: 1rem;
+    
+    border-radius: .8rem;
+
+    &:hover {
+      background-color: var(--clr-gray-2);
+    }
+  }
+
+  .demoLink {
+    padding: 1rem;
+    border-radius: .8rem;
+
+    text-decoration: none;
+    line-height: 0;
+
+    color: var(--clr-text);
+    background-color: var(--clr-gray-2);
+  }
+}
