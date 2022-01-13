@@ -1,5 +1,14 @@
 .headerContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
   padding: 3rem 0;
+
+  background-color: var(--clr-bg);
+
+  z-index: 3;
 
   &::before {
     content: '';
