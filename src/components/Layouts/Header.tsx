@@ -19,7 +19,6 @@ export const Header = ({ title, description, ogImage }: HeaderProps) => {
     { label: 'Home', destination: '/' },
     { label: 'Projects', destination: '/projects' },
     { label: 'Blog', destination: '/blog' },
-    { label: 'Contact', destination: '/contact' },
   ];
 
   const isCurrentPath = (href: string) => {
