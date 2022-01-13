@@ -1,11 +1,25 @@
 import { gql, GraphQLClient } from 'graphql-request';
 
+type ProjectImage = {
+  id: string,
+  url: string,
+  width: string,
+  height: string,
+};
 export interface IProject {
   slug: string;
   name: string;
   description: string;
+  sourceCode: string;
+  demo: string;
+  images: ProjectImage[];
 };
 
+export interface IFeaturedProject {
+  slug: string;
+  name: string;
+  description: string;
+}
 export interface IFeaturedPost {
   slug: string;
   title: string;
@@ -17,6 +31,34 @@ const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL as string)
 export const getAllProjects = async (): Promise<IProject[]> => {
   const query = gql`
     query Projects {
+      projects {
+        slug,
+        name,
+        description,
+        sourceCode,
+        demo,
+        image {
+          id,
+          url,
+          width,
+          height,
+        }
+      }
+    }
+  `;
+
+  const data = await client.request(query);
+  const allProjects = data.projects.map((project: any) => ({
+    ...project,
+    images: project.image,
+  }));
+
+  return allProjects;
+};
+
+export const getAllFeaturedProjects = async (): Promise<IFeaturedProject[]> => {
+  const query = gql`
+    query FeaturedProjects {
       projects {
         slug,
         name,
