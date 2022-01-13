@@ -1,0 +1,24 @@
+.featuredPostContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  
+  border: .1rem solid var(--clr-gray-2);
+  border-radius: .8rem;
+  
+  text-decoration: none;
+
+  time {
+    color: var(--clr-text);
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--clr-title);   
+  }
+
+  &:hover {
+    background-color: var(--clr-gray-2);
+  }
+}
