@@ -1,9 +1,16 @@
 .layoutContainer {
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   width: 100%;
   max-width: 110rem;
+  min-height: 100vh;
 
   margin: 0 auto;
   padding: 6rem 1rem 0;
+
+  > div {
+    flex: 1;
+  }
 }
