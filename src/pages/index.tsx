@@ -4,12 +4,11 @@ import Image from 'next/image';
 import * as GraphCMS from '@lib/graphcms';
 
 import { Layout } from '@components/Layouts/Layout';
+import { Contacts } from '@components/Contacts';
 import { FeaturedProject } from '@components/FeaturedProject';
 import { FeaturedPost } from '@components/FeaturedPost';
 
 import HandWEBP from '@public/images/hand.webp';
-import GithubSVG from '@public/icons/github.svg';
-import TwitterSVG from '@public/icons/twitter.svg';
 
 import styles from '@styles/pages/Home.module.scss';
 
@@ -34,31 +33,7 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
           Development at FATEC in Presidente Prudente.
         </p>
 
-        <div className={styles.socialMedias}>
-          <a
-            href="https://github.com/SadS4ndWiCh"
-            target='_blank'
-            rel='noreferrer'
-            title='Github'
-          >
-            <Image src={GithubSVG} alt='My github' />
-          </a>
-          <a
-            href="https://twitter.com/"
-            target='_blank'
-            rel='noreferrer'
-            title='Twitter'
-          >
-            <Image src={TwitterSVG} alt='My twitter' />
-          </a>
-          <a
-            href="mailto://caiocamargo.ct@gmail.com"
-            title='Gmail'
-            className={styles.emailMe}
-          >
-            Email me
-          </a>
-        </div>
+        <Contacts />
       </main>
 
       <section className={styles.featuredProjects}>
