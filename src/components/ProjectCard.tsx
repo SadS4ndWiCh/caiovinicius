@@ -49,7 +49,13 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
             href={project.demo}
             className={styles.demoLink}
           >
-            <Image src={OpenSVG} width={15} height={15} alt={`Open ${project.name}`} />
+            <Image
+              src={OpenSVG}
+              width={15}
+              height={15} 
+              alt={`Open ${project.name}`}
+              className={styles.demoLinkImage}
+            />
           </a>
         </div>
       </div>
