@@ -69,5 +69,9 @@
 
     color: var(--clr-text);
     background-color: var(--clr-gray-2);
+
+    .demoLinkImage {
+      transform: rotate(-45deg);
+    }
   }
 }
