@@ -24,6 +24,8 @@
   nav {
     display: flex;
     justify-content: flex-end;
+    max-width: 90rem;
+    margin: 0 auto;
   
     ul {
       display: flex;
