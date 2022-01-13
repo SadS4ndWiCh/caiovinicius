@@ -1,0 +1,36 @@
+:root {
+  font-size: 62.5%;
+
+  --clr-bg: #111;
+  --clr-gray-1: #333;
+  --clr-gray-2: #222;
+  --clr-title: #fff;
+  --clr-text: #999;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background: var(--clr-gray-2);
+}
+
+body {
+  background-color: var(--clr-bg);
+
+  &, button, input, textarea {
+    font-family: 'Fira Code', monospace, sans-serif;
+  }
+}
