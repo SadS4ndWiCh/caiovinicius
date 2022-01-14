@@ -18,6 +18,11 @@
     & + p {
       margin-top: 1rem;
     }
+
+    strong {
+      font-weight: 300;
+      color: var(--clr-title);
+    }
   }
 }
 
