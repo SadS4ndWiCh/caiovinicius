@@ -7,6 +7,7 @@ type ProjectImage = {
   height: string,
 };
 export interface IProject {
+  createdAt: string;
   slug: string;
   name: string;
   description: string;
@@ -32,6 +33,7 @@ export const getAllProjects = async (): Promise<IProject[]> => {
   const query = gql`
     query Projects {
       projects {
+        createdAt,
         slug,
         name,
         description,
