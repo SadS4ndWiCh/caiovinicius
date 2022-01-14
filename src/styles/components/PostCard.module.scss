@@ -1,0 +1,32 @@
+.postCardContainer {
+  display: flex;
+  flex-direction: column;
+
+  padding: 2rem;
+
+  border: 1px solid var(--clr-gray-2);
+  border-radius: .8rem;
+  
+  text-decoration: none;
+
+  transition: transform .2s;
+
+  &:hover {
+    transform: translateY(-.5rem);
+  }
+
+  time {
+    font-size: 1.3rem;
+    color: var(--clr-text);
+  }
+  h3 {
+    margin-bottom: 1rem;
+
+    font-size: 3rem;
+    color: var(--clr-title);
+  }
+  p {
+    font-size: 1.6rem;
+    color: var(--clr-text);
+  }
+}
