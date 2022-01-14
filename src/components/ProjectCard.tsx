@@ -13,13 +13,18 @@ interface ProjectCardProps {
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
+  const createdYear = (new Date(project.createdAt)).getFullYear();
+
   return (
     <div className={styles.projectCardContainer}>
-      <div className={styles.thumb}>
-        <Image src={HandWEBP} alt='icon' />
+      <div className={styles.cardHeader}>
+        <div className={styles.thumb}>
+          <Image src={HandWEBP} alt='icon' />
+        </div>
+        <h3>{ project.name }</h3>
+        <span className={styles.createdAt}>{ createdYear }</span>
       </div>
       <div className={styles.details}>
-        <h3>{ project.name }</h3>
         <p>{ project.description }</p>
 
         <div className={styles.screenshots}>
