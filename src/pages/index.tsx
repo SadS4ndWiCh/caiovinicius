@@ -28,11 +28,11 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
           <Image src={HandWEBP} alt='waving'/>
         </h2>
         <p>
-          I&apos;m Caio Vinícius, an 18 year old Brazilian web developer.
+          I&apos;m <strong>Caio Vinícius</strong>, an 18 year old Brazilian web developer.
         </p>
         <p>
-          I don&apos;t work at the moment but I&apos;m looking for one. I am studying Systems Analysis and 
-          Development at FATEC in Presidente Prudente.
+          I don&apos;t work at the moment but I&apos;m looking for one. I am studying <strong>Systems Analysis and 
+          Development</strong> at <strong>FATEC</strong> in <strong>Presidente Prudente</strong>.
         </p>
 
         <Contacts />
