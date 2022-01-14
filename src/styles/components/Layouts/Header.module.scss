@@ -1,3 +1,5 @@
+@import '../../_mixins.scss';
+
 .headerContainer {
   position: fixed;
   top: 0;
@@ -42,6 +44,10 @@
           background-color: var(--clr-gray-2);
         }
       }
+    }
+
+    @include tablet {
+      justify-content: center;
     }
   }
 }

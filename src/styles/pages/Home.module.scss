@@ -1,4 +1,9 @@
+@import '../_mixins.scss';
+
 .introduction {
+  display: flex;
+  flex-direction: column;
+
   h2 {
     margin-bottom: 1rem;
 
@@ -23,6 +28,11 @@
       font-weight: 300;
       color: var(--clr-title);
     }
+  }
+
+  @include tablet {
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -54,6 +64,11 @@
       &:hover {
         background-color: var(--clr-gray-2);
       }
+    }
+
+    @include tablet {
+      flex-direction: column;
+      justify-content: center;
     }
   }
 }
