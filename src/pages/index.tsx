@@ -4,11 +4,13 @@ import Image from 'next/image';
 import * as GraphCMS from '@lib/graphcms';
 
 import { Layout } from '@components/Layouts/Layout';
+import { Link } from '@components/Link';
 import { Contacts } from '@components/Contacts';
 import { FeaturedProject } from '@components/FeaturedProject';
 import { PostCard } from '@components/PostCard';
 
 import HandWEBP from '@public/images/hand.webp';
+import OpenSVG from '@public/icons/open.svg';
 
 import styles from '@styles/pages/Home.module.scss';
 
@@ -37,7 +39,18 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
       </main>
 
       <section className={styles.featuredProjects}>
-        <h2>Featured Projects</h2>
+        <div>
+          <h2>Featured Projects</h2>
+          <Link href='/projects'>
+            See all
+            <Image
+              src={OpenSVG}
+              width={15}
+              height={15}
+              alt='See all'
+            />
+          </Link>
+        </div>
 
         <ul className={styles.featuredProjectsList}>
           { featuredProjects.map(project => (
@@ -51,7 +64,18 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
       </section>
 
       <section className={styles.featuredPosts}>
-        <h2>Featured Posts</h2>
+        <div>
+          <h2>Featured Posts</h2>
+          <Link href='/blog'>
+            See all
+            <Image
+              src={OpenSVG}
+              width={15}
+              height={15}
+              alt='See all'
+            />
+          </Link>
+        </div>
 
         <ul className={styles.featuredPostsList}>
           { featuredPosts.map(post => (
