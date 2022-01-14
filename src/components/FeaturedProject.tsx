@@ -11,16 +11,20 @@ interface FeaturedProjectProps {
 };
 
 export const FeaturedProject = ({ project }: FeaturedProjectProps) => {
+  const createdYear = (new Date(project.createdAt)).getFullYear();
+
   return (
     <div className={styles.featuredProjectContainer}>
       <div className={styles.content}>
-        <div className={styles.thumb}>
-          <Image src={HandWEBP} alt='icon' />
-        </div>
-        <div className={styles.details}>
+        <div className={styles.header}>
+          <div className={styles.thumb}>
+            <Image src={HandWEBP} alt='icon' />
+          </div>
           <h3>{ project.name }</h3>
-          <p>{ project.description }</p>
+          <span className={styles.createdAt}>{ createdYear }</span>
         </div>
+
+        <p className={styles.description}>{ project.description }</p>
       </div>
     </div>
   )
