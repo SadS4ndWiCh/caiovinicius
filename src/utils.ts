@@ -1,3 +1,9 @@
 export const date = (date: string) => {
-  return Intl.DateTimeFormat('en').format(new Date(date));
+  const options = { 
+    weekday: 'long',
+    year: 'numeric',
+    day: 'numeric'
+  }
+  // @ts-ignore
+  return Intl.DateTimeFormat('en', options).format(new Date(date));
 };
