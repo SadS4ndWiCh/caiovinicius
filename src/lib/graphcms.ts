@@ -1,4 +1,6 @@
 import { gql, GraphQLClient } from 'graphql-request';
+// @ts-ignore
+import faker from '@faker-js/faker';
 
 type ProjectImage = {
   id: string,
@@ -21,9 +23,10 @@ export interface IFeaturedProject {
   name: string;
   description: string;
 }
-export interface IFeaturedPost {
+export interface IPostDetails {
   slug: string;
   title: string;
+  excerpt: string;
   createdAt: string;
 }
 
@@ -74,7 +77,7 @@ export const getAllFeaturedProjects = async (): Promise<IFeaturedProject[]> => {
   return data.projects;
 };
 
-export const getAllPosts = async (): Promise<IFeaturedPost[]> => {
+export const getAllPosts = async (): Promise<IPostDetails[]> => {
   const query = gql`
     query Posts {
       posts {
@@ -86,6 +89,10 @@ export const getAllPosts = async (): Promise<IFeaturedPost[]> => {
   `;
 
   const data = await client.request(query);
+  const allPosts = data.posts.map((post: any) => ({
+    ...post,
+    excerpt: faker.lorem.sentence(15),
+  }));
 
-  return data.posts;
+  return allPosts;
 };
