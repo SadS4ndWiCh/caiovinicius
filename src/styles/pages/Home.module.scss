@@ -24,10 +24,32 @@
 .container section {
   margin-top: 6rem;
 
-  h2 {
-    font-weight: 500;
-    font-size: 2.4rem;
-    color: var(--clr-title);
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      font-weight: 500;
+      font-size: 2.4rem;
+      color: var(--clr-title);
+    }
+    
+    a {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      padding: 1rem;
+
+      text-decoration: none;
+      font-size: 1.3rem;
+      color: var(--clr-text);
+
+      &:hover {
+        background-color: var(--clr-gray-2);
+      }
+    }
   }
 }
 
