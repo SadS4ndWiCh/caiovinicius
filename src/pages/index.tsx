@@ -6,7 +6,7 @@ import * as GraphCMS from '@lib/graphcms';
 import { Layout } from '@components/Layouts/Layout';
 import { Contacts } from '@components/Contacts';
 import { FeaturedProject } from '@components/FeaturedProject';
-import { FeaturedPost } from '@components/FeaturedPost';
+import { PostCard } from '@components/PostCard';
 
 import HandWEBP from '@public/images/hand.webp';
 
@@ -14,7 +14,7 @@ import styles from '@styles/pages/Home.module.scss';
 
 interface HomeProps {
   featuredProjects: GraphCMS.IProject[];
-  featuredPosts: GraphCMS.IFeaturedPost[];
+  featuredPosts: GraphCMS.IPostDetails[];
 };
 
 const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
@@ -58,7 +58,7 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
             <li 
               key={post.slug}
             >
-              <FeaturedPost post={post} />
+              <PostCard post={post} />
             </li>
           )) }
         </ul>
