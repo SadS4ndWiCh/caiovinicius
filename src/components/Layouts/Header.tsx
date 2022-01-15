@@ -1,17 +1,15 @@
 import { useRouter } from 'next/router';
 
-import { Seo } from '../Seo';
+import { Seo, SeoProps } from '../Seo';
 import { Link } from '../Link';
 
 import styles from '@styles/components/Layouts/Header.module.scss';
 
 interface HeaderProps {
-  title?: string;
-  description?: string;
-  ogImage?: string;
+  seo: SeoProps;
 };
 
-export const Header = ({ title, description, ogImage }: HeaderProps) => {
+export const Header = ({ seo }: HeaderProps) => {
   const router = useRouter();
   const currentPath = router.pathname;
 
@@ -28,7 +26,7 @@ export const Header = ({ title, description, ogImage }: HeaderProps) => {
 
   return (
     <header className={styles.headerContainer}>
-      <Seo title={title} description={description} ogImage={ogImage} />
+      <Seo title={seo.title} description={seo.description} ogImage={seo.ogImage} />
 
       <nav>
         <ul>
