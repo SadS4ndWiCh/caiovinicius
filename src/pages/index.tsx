@@ -21,7 +21,12 @@ interface HomeProps {
 
 const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
   return (
-    <Layout className={styles.container}>
+    <Layout
+      seo={{
+        description: 'I\'m Caio Vinícius, an 18 year old Brazilian web developer. I don\'t work at the moment but I\'m looking for one. I am studyng System Analysis and System Development at FATEC in Presidente Prudente.'
+      }}
+      className={styles.container}
+    >
       <main className={styles.introduction}>
         <h2>
           Hello! 
