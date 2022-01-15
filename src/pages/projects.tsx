@@ -13,7 +13,13 @@ interface ProjectsProps {
 
 const Projects: NextPage<ProjectsProps> = ({ allProjects }) => {
   return (
-    <Layout className={styles.container}>
+    <Layout
+      seo={{
+        title: 'Projects',
+        description: 'List of my projects'
+      }}
+      className={styles.container}
+    >
       <h1>All Projects</h1>
 
       <ul className={styles.projectsList}>

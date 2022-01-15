@@ -13,7 +13,13 @@ interface BlogProps {
 
 const Blog: NextPage<BlogProps> = ({ allPosts }) => {
   return (
-    <Layout className={styles.container}>
+    <Layout 
+      seo={{
+        title: 'Blog',
+        description: 'My tech blog'
+      }}
+      className={styles.container}
+    >
       <h1>Blog</h1>
 
       <main>
