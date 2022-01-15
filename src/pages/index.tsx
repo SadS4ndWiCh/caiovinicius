@@ -23,7 +23,7 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
   return (
     <Layout
       seo={{
-        description: 'I\'m Caio Vinícius, an 18 year old Brazilian web developer. I don\'t work at the moment but I\'m looking for one. I am studyng System Analysis and System Development at FATEC in Presidente Prudente.'
+        description: 'This is my portfolio and blog where I detail my projects and document what I did along the way.'
       }}
       className={styles.container}
     >
