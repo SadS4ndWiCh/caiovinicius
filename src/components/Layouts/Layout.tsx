@@ -2,13 +2,18 @@ import { HTMLProps } from 'react';
 
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { SeoProps } from '@components/Seo';
 
 import styles from '@styles/components/Layouts/Layout.module.scss';
 
-export const Layout = ({ children, className='' }: HTMLProps<HTMLDivElement>) => {
+interface LayoutProps extends HTMLProps<HTMLDivElement> {
+  seo: SeoProps;
+};
+
+export const Layout = ({ seo, children, className='' }: LayoutProps) => {
   return (
     <div className={styles.layoutContainer}>
-      <Header />
+      <Header seo={seo} />
 
       <div className={className}>
         { children }
