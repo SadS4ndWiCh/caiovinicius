@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-interface SeoProps {
+export interface SeoProps {
   title?: string;
   description?: string;
   ogImage?: string;
