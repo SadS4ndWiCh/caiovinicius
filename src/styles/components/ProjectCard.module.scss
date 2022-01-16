@@ -12,7 +12,6 @@
 .cardHeader {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   .thumb {
     width: fit-content;
@@ -20,6 +19,7 @@
   
     flex-shrink: 0;
     padding: 1rem;
+    margin-right: 1rem;
   
     border-radius: .8rem;
   
@@ -29,6 +29,8 @@
   }
 
   h3 {
+    margin-right: auto;
+
     font-size: 2rem;
     font-weight: 400;
     color: var(--clr-title);
