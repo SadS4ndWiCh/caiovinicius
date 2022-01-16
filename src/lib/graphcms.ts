@@ -13,21 +13,39 @@ export interface IProject {
   slug: string;
   name: string;
   description: string;
+  icon: {
+    url: string;
+  }
   sourceCode: string;
   demo: string;
   images: ProjectImage[];
 };
 
 export interface IFeaturedProject {
-  slug: string;
+  createdAt: string;
+  id: string;
   name: string;
   description: string;
+  icon: { 
+    url: string
+  };
 }
 export interface IPostDetails {
   slug: string;
   title: string;
   excerpt: string;
-  createdAt: string;
+  date: string;
+}
+
+export interface IPost {
+  title: string;
+  content: string;
+  tags: string[];
+  coverImage: {
+    url: string;
+  }
+  date: string;
+  excerpt: string;
 }
 
 const client = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_URL as string);
@@ -42,6 +60,9 @@ export const getAllProjects = async (): Promise<IProject[]> => {
         description,
         sourceCode,
         demo,
+        icon {
+          url,
+        }
         image {
           id,
           url,
@@ -64,10 +85,14 @@ export const getAllProjects = async (): Promise<IProject[]> => {
 export const getAllFeaturedProjects = async (): Promise<IFeaturedProject[]> => {
   const query = gql`
     query FeaturedProjects {
-      projects {
-        slug,
+      projects(where:{ featured: true }) {
+        createdAt,
+        id,
         name,
         description,
+        icon {
+          url,
+        }
       }
     }
   `;
@@ -83,7 +108,7 @@ export const getAllPosts = async (): Promise<IPostDetails[]> => {
       posts {
         slug,
         title,
-        createdAt,
+        date,
       }
     }
   `;
@@ -95,4 +120,42 @@ export const getAllPosts = async (): Promise<IPostDetails[]> => {
   }));
 
   return allPosts;
+};
+
+export const getPostsSlugs = async (): Promise<{ slug: string }[]> => {
+  const query = gql`
+    query PostsSlugs {
+      posts {
+        slug
+      }
+    }
+  `;
+
+  const data = await client.request(query);
+  
+  return data.posts;
+};
+
+export const getPostBySlug = async (slug: string): Promise<IPost> => {
+  const query = gql`
+    query PostBySlug {
+      post(where:{ slug:"${slug}" }) {
+        title,
+        content,
+        tags,
+        date,
+        coverImage {
+          url
+        }        
+      }
+    }
+  `;
+
+  const data = await client.request(query);
+  const post = {
+    ...data.post,
+    excerpt: faker.lorem.sentence(15),
+  }
+
+  return post;
 };
