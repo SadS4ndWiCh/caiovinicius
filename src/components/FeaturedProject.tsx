@@ -2,8 +2,6 @@ import Image from "next/image";
 
 import { IFeaturedProject } from "@lib/graphcms";
 
-import HandWEBP from '@public/images/hand.webp';
-
 import styles from '@styles/components/FeaturedProjects.module.scss';
 
 interface FeaturedProjectProps {
