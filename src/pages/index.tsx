@@ -15,7 +15,7 @@ import OpenSVG from '@public/icons/open.svg';
 import styles from '@styles/pages/Home.module.scss';
 
 interface HomeProps {
-  featuredProjects: GraphCMS.IProject[];
+  featuredProjects: GraphCMS.IFeaturedProject[];
   featuredPosts: GraphCMS.IPostDetails[];
 };
 
@@ -60,7 +60,7 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
         <ul className={styles.featuredProjectsList}>
           { featuredProjects.map(project => (
             <li
-              key={project.slug}
+              key={project.id}
             >
               <FeaturedProject project={project} />
             </li>
@@ -97,12 +97,12 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredProjects = await GraphCMS.getAllProjects();
+  const featuredProjects = await GraphCMS.getAllFeaturedProjects();
   const featuredPosts = await GraphCMS.getAllPosts();
 
   return {
     props: {
-      featuredProjects: featuredProjects.slice(0, 3),
+      featuredProjects: featuredProjects,
       featuredPosts: featuredPosts.slice(0, 3),
     },
   }
