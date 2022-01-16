@@ -4,9 +4,10 @@ export interface SeoProps {
   title?: string;
   description?: string;
   ogImage?: string;
+  keywords?: string[];
 };
 
-export const Seo = ({ title = 'Caio Vinícius', description, ogImage }: SeoProps) => {
+export const Seo = ({ title = 'Caio Vinícius', description, ogImage, keywords }: SeoProps) => {
   return (
     <Head>
       <title>{ title }</title>
@@ -20,6 +21,10 @@ export const Seo = ({ title = 'Caio Vinícius', description, ogImage }: SeoProps
           <meta property="og:description" content={ description } />
           <meta property="twitter:description" content={ description } />
         </>
+      ) }
+
+      { keywords && (
+        <meta name="keywords" content={keywords.join(', ')} />
       ) }
 
       <meta property="og:type" content="website" />
