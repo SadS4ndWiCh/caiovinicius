@@ -108,18 +108,15 @@ export const getAllPosts = async (): Promise<IPostDetails[]> => {
       posts {
         slug,
         title,
+        excerpt,
         date,
       }
     }
   `;
 
   const data = await client.request(query);
-  const allPosts = data.posts.map((post: any) => ({
-    ...post,
-    excerpt: faker.lorem.sentence(15),
-  }));
 
-  return allPosts;
+  return data.posts;
 };
 
 export const getAllFeaturedPosts = async (): Promise<IPostDetails[]> => {
@@ -128,18 +125,15 @@ export const getAllFeaturedPosts = async (): Promise<IPostDetails[]> => {
       posts(where:{ featured: true }) {
         slug,
         title,
-        date
+        excerpt,
+        date,
       }
     }
   `;
 
   const data = await client.request(query);
-  const allFeaturedPosts = data.posts.map((post: any) => ({
-    ...post,
-    excerpt: faker.lorem.sentence(15),
-  }));
 
-  return allFeaturedPosts;
+  return data.posts;
 };
 
 export const getPostsSlugs = async (): Promise<{ slug: string }[]> => {
@@ -161,6 +155,7 @@ export const getPostBySlug = async (slug: string): Promise<IPost> => {
     query PostBySlug {
       post(where:{ slug:"${slug}" }) {
         title,
+        excerpt,
         content,
         tags,
         date,
@@ -172,10 +167,6 @@ export const getPostBySlug = async (slug: string): Promise<IPost> => {
   `;
 
   const data = await client.request(query);
-  const post = {
-    ...data.post,
-    excerpt: faker.lorem.sentence(15),
-  }
 
-  return post;
+  return data.post;
 };
