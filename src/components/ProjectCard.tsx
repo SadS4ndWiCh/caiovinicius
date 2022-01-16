@@ -2,7 +2,6 @@ import Image from "next/image";
 
 import { IProject } from "@lib/graphcms";
 
-import HandWEBP from '@public/images/hand.webp';
 import GithubSVG from '@public/icons/github.svg';
 import OpenSVG from '@public/icons/open.svg';
 
@@ -18,9 +17,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <div className={styles.projectCardContainer}>
       <div className={styles.cardHeader}>
-        <div className={styles.thumb}>
-          <Image src={HandWEBP} alt='icon' />
-        </div>
+        { project.icon && (
+          <div className={styles.thumb}>
+            <Image src={project.icon.url} width={25} height={25} alt='icon' />
+          </div>
+        ) }
         <h3>{ project.name }</h3>
         <span className={styles.createdAt}>{ createdYear }</span>
       </div>
