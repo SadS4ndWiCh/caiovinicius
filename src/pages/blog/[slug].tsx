@@ -16,7 +16,9 @@ interface PostProps {
   postDetails: {
     title: string;
     excerpt: string;
-    coverImage: string;
+    coverImage: {
+      url: string;
+    };
     tags: string[];
     date: string;
   };
@@ -41,6 +43,7 @@ const Post: NextPage<PostProps> = ({ postDetails, content }) => {
         title: postDetails.title,
         description: postDetails.excerpt,
         keywords: postDetails.tags,
+        ogImage: postDetails.coverImage.url,
       }}
       className={styles.container}
     >
@@ -48,6 +51,8 @@ const Post: NextPage<PostProps> = ({ postDetails, content }) => {
         <header>
           <h1 className={styles.title}>{ postDetails.title }</h1>
           <time>{ publishedDate }</time>
+          <PostImage src={postDetails.coverImage.url} alt={postDetails.title} />
+          <p className={styles.excerpt}>{ postDetails.excerpt }</p>
         </header>
         
         <main className={styles.postContent}>
