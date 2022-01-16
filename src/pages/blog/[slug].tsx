@@ -75,7 +75,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const allPostsSlugs = await GraphCMS.getPostsSlugs();
   return {
     paths: allPostsSlugs.map(({ slug }: any) => ({ params: { slug } })),
-    fallback: 'blocking',
+    fallback: false,
   }
 };
 
@@ -96,6 +96,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
       content
     },
+    revalidate: 60 * 60 * 24 // Revalidate every 24h
   }
 };
 

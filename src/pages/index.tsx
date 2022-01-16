@@ -105,6 +105,7 @@ export const getStaticProps: GetStaticProps = async () => {
       featuredProjects: featuredProjects,
       featuredPosts: featuredPosts,
     },
+    revalidate: 60 * 60 * 24 // Revalidate every 24h
   }
 };
 

@@ -39,7 +39,8 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       allProjects,
-    }
+    },
+    revalidate: 60 * 60 * 24 // Revalidate every 24h
   }
 };
 
