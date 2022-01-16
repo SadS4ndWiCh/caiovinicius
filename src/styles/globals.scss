@@ -14,15 +14,15 @@
   box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 1rem;
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   background: var(--clr-bg);
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   border-radius: 1rem;
   background: var(--clr-gray-2);
 }
