@@ -122,6 +122,26 @@ export const getAllPosts = async (): Promise<IPostDetails[]> => {
   return allPosts;
 };
 
+export const getAllFeaturedPosts = async (): Promise<IPostDetails[]> => {
+  const query = gql`
+    query FeaturedPosts {
+      posts(where:{ featured: true }) {
+        slug,
+        title,
+        date
+      }
+    }
+  `;
+
+  const data = await client.request(query);
+  const allFeaturedPosts = data.posts.map((post: any) => ({
+    ...post,
+    excerpt: faker.lorem.sentence(15),
+  }));
+
+  return allFeaturedPosts;
+};
+
 export const getPostsSlugs = async (): Promise<{ slug: string }[]> => {
   const query = gql`
     query PostsSlugs {
