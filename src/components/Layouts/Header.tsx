@@ -21,12 +21,17 @@ export const Header = ({ seo }: HeaderProps) => {
 
   const isCurrentPath = (href: string) => {
     if (href === '/') return currentPath === href;
-    return currentPath === href;
+    return currentPath.startsWith(href);
   };
 
   return (
     <header className={styles.headerContainer}>
-      <Seo title={seo.title} description={seo.description} ogImage={seo.ogImage} />
+      <Seo 
+        title={seo.title}
+        description={seo.description}
+        ogImage={seo.ogImage}
+        keywords={seo.keywords}
+      />
 
       <nav>
         <ul>
