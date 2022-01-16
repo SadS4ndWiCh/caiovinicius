@@ -98,12 +98,12 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   const featuredProjects = await GraphCMS.getAllFeaturedProjects();
-  const featuredPosts = await GraphCMS.getAllPosts();
+  const featuredPosts = await GraphCMS.getAllFeaturedPosts();
 
   return {
     props: {
       featuredProjects: featuredProjects,
-      featuredPosts: featuredPosts.slice(0, 3),
+      featuredPosts: featuredPosts,
     },
   }
 };
