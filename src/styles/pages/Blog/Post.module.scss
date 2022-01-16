@@ -1,5 +1,7 @@
 .container {
   time {
+    display: block;
+    margin-bottom: 2rem;
     font-size: 1.4rem;
     color: var(--clr-text);
   }
@@ -7,6 +9,12 @@
 
 .title {
   font-size: 5rem;
+  color: var(--clr-title);
+}
+
+.excerpt {
+  margin-top: 1rem;
+  font-size: 1.6rem;
   color: var(--clr-title);
 }
 
