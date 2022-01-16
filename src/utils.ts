@@ -1,5 +1,6 @@
 export const date = (date: string) => {
-  const options = { 
+  const options = {
+    month: 'long',
     weekday: 'long',
     year: 'numeric',
     day: 'numeric'
