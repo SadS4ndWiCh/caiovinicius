@@ -1,5 +1,9 @@
 {
   "name": "caiovinicius",
+  "description": "This is my portfolio and blog where I detail my projects and document what I did along the way.",
+  "author": {
+    "name": "SadS4ndWiCh <caiocamargo.ct@gmail.com>"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
