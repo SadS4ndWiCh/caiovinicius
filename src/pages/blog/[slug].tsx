@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
-import * as GraphCMS from "@lib/graphcms";
+import { GraphApi } from "@lib/graphcms";
 import { date } from "src/utils";
 
 import { Layout } from "@components/Layouts/Layout";
@@ -72,7 +72,7 @@ const Post: NextPage<PostProps> = ({ postDetails, content }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPostsSlugs = await GraphCMS.getPostsSlugs();
+  const allPostsSlugs = await GraphApi.getPostsSlugs();
   return {
     paths: allPostsSlugs.map(({ slug }: any) => ({ params: { slug } })),
     fallback: false,
@@ -81,7 +81,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params!.slug as string;
-  const post = await GraphCMS.getPostBySlug(slug);
+  const post = await GraphApi.getPostBySlug(slug);
 
   const content = await serialize(post.content);
 

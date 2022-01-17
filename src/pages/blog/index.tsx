@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 
-import * as GraphCMS from "@lib/graphcms";
+import { GraphApi, Types } from "@lib/graphcms";
 
 import { Layout } from "@components/Layouts/Layout";
 import { PostCard } from "@components/PostCard";
@@ -8,7 +8,7 @@ import { PostCard } from "@components/PostCard";
 import styles from '@styles/pages/Blog/Blog.module.scss';
 
 interface BlogProps {
-  allPosts: GraphCMS.IPostDetails[]
+  allPosts: Types.IPostDetails[]
 };
 
 const Blog: NextPage<BlogProps> = ({ allPosts }) => {
@@ -36,7 +36,7 @@ const Blog: NextPage<BlogProps> = ({ allPosts }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = await GraphCMS.getAllPosts();
+  const allPosts = await GraphApi.getAllPosts();
   
   return {
     props: {

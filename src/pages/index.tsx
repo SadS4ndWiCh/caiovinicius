@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 
-import * as GraphCMS from '@lib/graphcms';
+import { GraphApi, Types } from '@lib/graphcms';
 
 import { Layout } from '@components/Layouts/Layout';
 import { Link } from '@components/Link';
@@ -15,8 +15,8 @@ import OpenSVG from '@public/icons/open.svg';
 import styles from '@styles/pages/Home.module.scss';
 
 interface HomeProps {
-  featuredProjects: GraphCMS.IFeaturedProject[];
-  featuredPosts: GraphCMS.IPostDetails[];
+  featuredProjects: Types.IFeaturedProject[];
+  featuredPosts: Types.IPostDetails[];
 };
 
 const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
@@ -97,8 +97,8 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredProjects = await GraphCMS.getAllFeaturedProjects();
-  const featuredPosts = await GraphCMS.getAllFeaturedPosts();
+  const featuredProjects = await GraphApi.getAllFeaturedProjects();
+  const featuredPosts = await GraphApi.getAllFeaturedPosts();
 
   return {
     props: {

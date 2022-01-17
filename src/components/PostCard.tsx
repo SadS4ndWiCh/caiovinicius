@@ -1,4 +1,4 @@
-import { IPostDetails } from '@lib/graphcms';
+import { Types } from '@lib/graphcms';
 
 import { date } from 'src/utils';
 
@@ -7,7 +7,7 @@ import { Link } from './Link';
 import styles from '@styles/components/PostCard.module.scss';
 
 interface PostCardProps {
-  post: IPostDetails;
+  post: Types.IPostDetails;
 };
 
 export const PostCard = ({ post }: PostCardProps) => {

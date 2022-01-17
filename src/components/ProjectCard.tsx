@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { IProject } from "@lib/graphcms";
+import { Types } from "@lib/graphcms";
 
 import GithubSVG from '@public/icons/github.svg';
 import OpenSVG from '@public/icons/open.svg';
@@ -8,7 +8,7 @@ import OpenSVG from '@public/icons/open.svg';
 import styles from '@styles/components/ProjectCard.module.scss';
 
 interface ProjectCardProps {
-  project: IProject;
+  project: Types.IProject;
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {

@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from "next";
 
-import { getAllProjects, IProject } from "@lib/graphcms";
+import { GraphApi, Types } from "@lib/graphcms";
 
 import { Layout } from "@components/Layouts/Layout";
 import { ProjectCard } from "@components/ProjectCard";
@@ -8,7 +8,7 @@ import { ProjectCard } from "@components/ProjectCard";
 import styles from '@styles/pages/Projects.module.scss';
 
 interface ProjectsProps {
-  allProjects: IProject[],
+  allProjects: Types.IProject[],
 };
 
 const Projects: NextPage<ProjectsProps> = ({ allProjects }) => {
@@ -34,7 +34,7 @@ const Projects: NextPage<ProjectsProps> = ({ allProjects }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allProjects = await getAllProjects();
+  const allProjects = await GraphApi.getAllProjects();
 
   return {
     props: {

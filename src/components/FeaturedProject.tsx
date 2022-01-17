@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import { IFeaturedProject } from "@lib/graphcms";
+import { Types } from "@lib/graphcms";
 
 import styles from '@styles/components/FeaturedProjects.module.scss';
 
 interface FeaturedProjectProps {
-  project: IFeaturedProject;
+  project: Types.IFeaturedProject;
 };
 
 export const FeaturedProject = ({ project }: FeaturedProjectProps) => {
