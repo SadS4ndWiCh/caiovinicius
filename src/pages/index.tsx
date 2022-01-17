@@ -8,6 +8,7 @@ import { Link } from '@components/Link';
 import { Contacts } from '@components/Contacts';
 import { FeaturedProject } from '@components/FeaturedProject';
 import { PostCard } from '@components/PostCard';
+import { NoResults } from '@components/NoResults';
 
 import HandWEBP from '@public/images/hand.webp';
 import OpenSVG from '@public/icons/open.svg';
@@ -44,53 +45,65 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
       </main>
 
       <section className={styles.featuredProjects}>
-        <div>
+        <header>
           <h2>Featured Projects</h2>
-          <Link href='/projects'>
-            See all
-            <Image
-              src={OpenSVG}
-              width={15}
-              height={15}
-              alt='See all'
-            />
-          </Link>
-        </div>
+          { featuredProjects.length > 0 && (
+            <Link href='/projects'>
+              See all
+              <Image
+                src={OpenSVG}
+                width={15}
+                height={15}
+                alt='See all'
+              />
+            </Link>
+          ) }
+        </header>
 
-        <ul className={styles.featuredProjectsList}>
-          { featuredProjects.map(project => (
-            <li
-              key={project.id}
-            >
-              <FeaturedProject project={project} />
-            </li>
-          )) }
-        </ul>
+        { featuredProjects.length > 0 ? (
+          <ul className={styles.featuredProjectsList}>
+            { featuredProjects.map(project => (
+              <li
+                key={project.id}
+              >
+                <FeaturedProject project={project} />
+              </li>
+            )) }
+          </ul>
+        ) : (
+          <NoResults />
+        ) }
       </section>
 
       <section className={styles.featuredPosts}>
-        <div>
+        <header>
           <h2>Featured Posts</h2>
-          <Link href='/blog'>
-            See all
-            <Image
-              src={OpenSVG}
-              width={15}
-              height={15}
-              alt='See all'
-            />
-          </Link>
-        </div>
+          { featuredPosts.length > 0 && (
+            <Link href='/blog'>
+              See all
+              <Image
+                src={OpenSVG}
+                width={15}
+                height={15}
+                alt='See all'
+              />
+            </Link>
+          ) }
+        </header>
 
-        <ul className={styles.featuredPostsList}>
-          { featuredPosts.map(post => (
-            <li 
-              key={post.slug}
-            >
-              <PostCard post={post} />
-            </li>
-          )) }
-        </ul>
+        { featuredPosts.length > 0 ? (
+          <ul className={styles.featuredPostsList}>
+            { featuredPosts.map(post => (
+              <li 
+                key={post.slug}
+              >
+                <PostCard post={post} />
+              </li>
+            )) }
+          </ul>
+        ) : (
+          <NoResults />
+        ) }
       </section>
     </Layout>
   )
