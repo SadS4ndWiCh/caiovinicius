@@ -1,2 +1,2 @@
-export * as GraphApi from './api';
-export * as Types from './types';
+export * as GraphApi from './GraphCMS.api';
+export * as Types from './GraphCMS.types';
