@@ -4,6 +4,7 @@ import { GraphApi, Types } from "@lib/graphcms";
 
 import { Layout } from "@components/Layouts/Layout";
 import { ProjectCard } from "@components/ProjectCard";
+import { NoResults } from "@components/NoResults";
 
 import styles from '@styles/pages/Projects.module.scss';
 
@@ -22,13 +23,19 @@ const Projects: NextPage<ProjectsProps> = ({ allProjects }) => {
     >
       <h1>All Projects</h1>
 
-      <ul className={styles.projectsList}>
-        { allProjects.map(project => (
-          <li key={project.slug}>
-            <ProjectCard project={project}/>
-          </li>
-        )) }
-      </ul>
+      <main>
+        { allProjects.length > 0 ? (
+          <ul className={styles.projectsList}>
+            { allProjects.map(project => (
+              <li key={project.slug}>
+                <ProjectCard project={project}/>
+              </li>
+            )) }
+          </ul>
+        ) : (
+          <NoResults />
+        ) }
+      </main>
     </Layout>
   )
 };

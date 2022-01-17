@@ -4,6 +4,7 @@ import { GraphApi, Types } from "@lib/graphcms";
 
 import { Layout } from "@components/Layouts/Layout";
 import { PostCard } from "@components/PostCard";
+import { NoResults } from "@components/NoResults";
 
 import styles from '@styles/pages/Blog/Blog.module.scss';
 
@@ -23,13 +24,17 @@ const Blog: NextPage<BlogProps> = ({ allPosts }) => {
       <h1>Blog</h1>
 
       <main>
-        <ul className={styles.postsList}>
-          { allPosts.map(post => (
-            <li key={post.slug}>
-              <PostCard post={post} />
-            </li>
-          )) }
-        </ul>
+        { allPosts.length > 0 ? (
+          <ul className={styles.postsList}>
+            { allPosts.map(post => (
+              <li key={post.slug}>
+                <PostCard post={post} />
+              </li>
+            )) }
+          </ul>
+        ) : (
+          <NoResults />
+        ) }
       </main>
     </Layout>
   )
