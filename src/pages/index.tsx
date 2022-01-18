@@ -115,8 +115,8 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      featuredProjects: featuredProjects,
-      featuredPosts: featuredPosts,
+      featuredProjects,
+      featuredPosts,
     },
     revalidate: 60 * 60 * 24 // Revalidate every 24h
   }
