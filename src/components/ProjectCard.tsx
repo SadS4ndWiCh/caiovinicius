@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Types } from "@lib/graphcms";
 
 import GithubSVG from '@public/icons/github.svg';
-import OpenSVG from '@public/icons/open.svg';
+import OpenSVG from '@public/icons/arrow.svg';
 
 import styles from '@styles/components/ProjectCard.module.scss';
 

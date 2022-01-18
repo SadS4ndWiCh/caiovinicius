@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Seo, SeoProps } from '../Seo';
 import { Link } from '../Link';
 
-import ArrowSVG from '@public/icons/open.svg';
+import ArrowSVG from '@public/icons/arrow.svg';
 
 import styles from '@styles/components/Layouts/Header.module.scss';
 import Image from 'next/image';

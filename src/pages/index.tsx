@@ -11,7 +11,7 @@ import { PostCard } from '@components/PostCard';
 import { NoResults } from '@components/NoResults';
 
 import HandWEBP from '@public/images/hand.webp';
-import OpenSVG from '@public/icons/open.svg';
+import OpenSVG from '@public/icons/arrow.svg';
 
 import styles from '@styles/pages/Home.module.scss';
 
