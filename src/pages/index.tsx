@@ -1,36 +1,34 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 
-import { GraphApi, Types } from '@lib/graphcms';
+import * as GraphApi from '@lib/graphcms';
 
 import { Layout } from '@components/Layouts/Layout';
 import { Link } from '@components/Link';
 import { Contacts } from '@components/Contacts';
-import { FeaturedProject } from '@components/FeaturedProject';
-import { PostCard } from '@components/PostCard';
+import { ProjectCard } from '@components/ProjectCard';
 import { NoResults } from '@components/NoResults';
 
 import HandWEBP from '@public/images/hand.webp';
-import OpenSVG from '@public/icons/arrow.svg';
+import ArrowSVG from '@public/icons/arrow.svg';
 
 import styles from '@styles/pages/Home.module.scss';
 
 interface HomeProps {
-  featuredProjects: Types.IFeaturedProject[];
-  featuredPosts: Types.IPostDetails[];
+  allProjects: GraphApi.IProject[];
 };
 
-const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
+const Home: NextPage<HomeProps> = ({ allProjects }) => {
   return (
     <Layout
       seo={{
-        description: 'This is my portfolio and blog where I detail my projects and document what I did along the way.'
+        description: 'This is my portfolio where I detail my projects.'
       }}
       className={styles.container}
     >
       <main className={styles.introduction}>
         <h2>
-          Hello! 
+          Hello World! 
           <Image src={HandWEBP} alt='waving'/>
         </h2>
         <p>
@@ -44,14 +42,14 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
         <Contacts />
       </main>
 
-      <section className={styles.featuredProjects}>
+      <section className={styles.allProjects}>
         <header>
-          <h2>Featured Projects</h2>
-          { featuredProjects.length > 0 && (
+          <h2>Projects</h2>
+          { allProjects.length > 0 && (
             <Link href='/projects'>
               See all
               <Image
-                src={OpenSVG}
+                src={ArrowSVG}
                 width={15}
                 height={15}
                 alt='See all'
@@ -60,44 +58,13 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
           ) }
         </header>
 
-        { featuredProjects.length > 0 ? (
-          <ul className={styles.featuredProjectsList}>
-            { featuredProjects.map(project => (
+        { allProjects.length > 0 ? (
+          <ul className={styles.allProjectsList}>
+            { allProjects.map(project => (
               <li
-                key={project.id}
+                key={project.slug}
               >
-                <FeaturedProject project={project} />
-              </li>
-            )) }
-          </ul>
-        ) : (
-          <NoResults />
-        ) }
-      </section>
-
-      <section className={styles.featuredPosts}>
-        <header>
-          <h2>Featured Posts</h2>
-          { featuredPosts.length > 0 && (
-            <Link href='/blog'>
-              See all
-              <Image
-                src={OpenSVG}
-                width={15}
-                height={15}
-                alt='See all'
-              />
-            </Link>
-          ) }
-        </header>
-
-        { featuredPosts.length > 0 ? (
-          <ul className={styles.featuredPostsList}>
-            { featuredPosts.map(post => (
-              <li 
-                key={post.slug}
-              >
-                <PostCard post={post} />
+                <ProjectCard project={project} />
               </li>
             )) }
           </ul>
@@ -110,13 +77,11 @@ const Home: NextPage<HomeProps> = ({ featuredProjects, featuredPosts }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const featuredProjects = await GraphApi.getAllFeaturedProjects();
-  const featuredPosts = await GraphApi.getAllFeaturedPosts();
+  const allProjects = await GraphApi.getAllProjects();
 
   return {
     props: {
-      featuredProjects,
-      featuredPosts,
+      allProjects: allProjects.slice(0, 3),
     },
     revalidate: 60 * 60 * 24 // Revalidate every 24h
   }
