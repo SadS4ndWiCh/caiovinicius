@@ -19,7 +19,6 @@ export const Header = ({ seo }: HeaderProps) => {
   const navLinks = [
     { label: 'Home', destination: '/' },
     { label: 'Projects', destination: '/projects' },
-    { label: 'Blog', destination: '/blog' },
   ];
 
   const isCurrentPath = (href: string) => {
