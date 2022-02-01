@@ -50,6 +50,8 @@ export const Header = ({ seo }: HeaderProps) => {
           <li className={styles.downloadCv}>
             <a 
               href='https://drive.google.com/file/d/1hIkxHtyOTsq8psVqeNdZ6v-uHbXiMFBH/view?usp=sharing'
+              target='_blank'
+              rel='noreferrer'
             >
               Download CV
               <Image
