@@ -48,7 +48,9 @@ export const Header = ({ seo }: HeaderProps) => {
             </li>
           )) }
           <li className={styles.downloadCv}>
-            <Link href='/'>
+            <a 
+              href='https://drive.google.com/file/d/1hIkxHtyOTsq8psVqeNdZ6v-uHbXiMFBH/view?usp=sharing'
+            >
               Download CV
               <Image
                 src={ArrowSVG}
@@ -57,7 +59,7 @@ export const Header = ({ seo }: HeaderProps) => {
                 alt='Arrow down icon'
                 className={styles.arrowSvg}
               />
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>
