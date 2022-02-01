@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { Types } from "@lib/graphcms";
+import * as GraphCMS from "@lib/graphcms";
 
 import GithubSVG from '@public/icons/github.svg';
 import OpenSVG from '@public/icons/arrow.svg';
@@ -8,7 +8,7 @@ import OpenSVG from '@public/icons/arrow.svg';
 import styles from '@styles/components/ProjectCard.module.scss';
 
 interface ProjectCardProps {
-  project: Types.IProject;
+  project: GraphCMS.IProject;
 };
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
@@ -54,6 +54,8 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           <a
             href={project.demo}
             title={`Visit ${project.name}`}
+            target='_blank'
+            rel="noreferrer"
             className={styles.demoLink}
           >
             <Image
