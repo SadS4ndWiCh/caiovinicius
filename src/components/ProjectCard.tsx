@@ -46,14 +46,17 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           <a
             href={project.sourceCode}
             title='Source code'
+            target='_blank'
+            rel="noreferrer"
             className={styles.sourceCode}
           >
             <Image src={GithubSVG} width={22} height={22} alt='Source code' />
+            Source code
           </a>
 
           <a
             href={project.demo}
-            title={`Visit ${project.name}`}
+            title={`View ${project.name}`}
             target='_blank'
             rel="noreferrer"
             className={styles.demoLink}
@@ -62,9 +65,10 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
               src={OpenSVG}
               width={15}
               height={15} 
-              alt={`Visit ${project.name}`}
+              alt={`View ${project.name}`}
               className={styles.demoLinkImage}
             />
+            View demo
           </a>
         </div>
       </div>
