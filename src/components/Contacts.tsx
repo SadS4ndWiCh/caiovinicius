@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import GithubSVG from '@public/icons/github.svg';
 import TwitterSVG from '@public/icons/twitter.svg';
+import LinkedInSVG from '@public/icons/linkedin.svg';
 
 import styles from '@styles/components/Contacts.module.scss';
 
@@ -23,6 +24,12 @@ export const Contacts = () => {
         title='Twitter'
       >
         <Image src={TwitterSVG} alt='My twitter' />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/caiocamargo007/"
+        title='LinkedIn'
+      >
+        <Image src={LinkedInSVG} alt='My linkedin' />
       </a>
       <a
         href="mailto://caiocamargo.ct@gmail.com"
