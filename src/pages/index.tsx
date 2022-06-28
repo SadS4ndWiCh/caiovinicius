@@ -1,90 +1,64 @@
-import type { GetStaticProps, NextPage } from 'next';
-import Image from 'next/image';
+import { NextPage } from "next";
 
-import * as GraphApi from '@lib/graphcms';
+import { Header } from "@components/Header";
+import { Link } from "@components/Link";
+import { Twitter } from "@components/Icons/Twitter";
+import { Github } from "@components/Icons/Github";
+import { Project } from "@components/Project";
+import { Footer } from "@components/Footer";
 
-import { Layout } from '@components/Layouts/Layout';
-import { Link } from '@components/Link';
-import { Contacts } from '@components/Contacts';
-import { ProjectCard } from '@components/ProjectCard';
-import { NoResults } from '@components/NoResults';
-
-import HandWEBP from '@public/images/hand.webp';
-import ArrowSVG from '@public/icons/arrow.svg';
-
-import styles from '@styles/pages/Home.module.scss';
-
-interface HomeProps {
-  allProjects: GraphApi.IProject[];
-};
-
-const Home: NextPage<HomeProps> = ({ allProjects }) => {
+const Home: NextPage = () => {
   return (
-    <Layout
-      seo={{
-        description: 'This is my portfolio where I detail my projects.'
-      }}
-      className={styles.container}
-    >
-      <main className={styles.introduction}>
-        <h2>
-          Hello World! 
-          <Image src={HandWEBP} alt='waving'/>
-        </h2>
-        <p>
-          I&apos;m <strong>Caio Vinícius</strong>, an 18 year old Brazilian web developer.
-        </p>
-        <p>
-          I don&apos;t work at the moment but I&apos;m looking for one. I am studying <strong>Systems Analysis and 
-          Development</strong> at <strong>FATEC</strong> in <strong>Presidente Prudente</strong>.
-        </p>
+    <div className='min-h-screen'>
+      <div className='h-full container p-0 mx-auto bg-grid bg-center bg-contain bg-repeat-y bg-'>
+        <Header />
+        <div className='flex justify-between mt-20'>
+          <div className='max-w-[553px]'>
+            <h1 className='font-extrabold text-5xl text-heading'>
+              I&apos;m Caio Vinícius,<br />
+              an 18 year old Brazilian <br />
+              web developer.
+            </h1>
+            <p className='mt-3'>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tellus egestas orci, porta enim pulvinar cras urna. 
+              Suspendisse vel interdum odio nisl, senectus. Enim proin fermentum urna consectetur est nulla dui.<br /><br />
+              Vitae neque, enim molestie nisl accumsan mattis quis ridiculus nec. Aliquam orci nibh id in egestas sed sociis 
+              facilisi. Fusce metus rhoncus augue risus, molestie.
+            </p>
+          </div>
 
-        <Contacts />
-      </main>
-
-      <section className={styles.allProjects}>
-        <header>
-          <h2>Projects</h2>
-          { allProjects.length > 0 && (
-            <Link href='/projects'>
-              See all
-              <Image
-                src={ArrowSVG}
-                width={15}
-                height={15}
-                alt='See all'
-              />
+          <div className='flex flex-col items-center gap-1'>
+            <Link
+              href='https://twitter.com/SadSAndWiCh_'
+              className='shrink-0 flex items-center justify-center w-[38px] h-[38px] bg-white transition-colors hover:bg-primary-100'
+            >
+              <Twitter />
             </Link>
-          ) }
-        </header>
+            <Link
+              href='https://github.com/SadS4ndWiCh'
+              className='shrink-0 flex items-center justify-center w-[38px] h-[38px] bg-white transition-colors hover:bg-primary-100'
+            >
+              <Github />
+            </Link>
 
-        { allProjects.length > 0 ? (
-          <ul className={styles.allProjectsList}>
-            { allProjects.map(project => (
-              <li
-                key={project.slug}
-              >
-                <ProjectCard project={project} />
-              </li>
-            )) }
-          </ul>
-        ) : (
-          <NoResults />
-        ) }
-      </section>
-    </Layout>
+            <div className='w-[1px] h-full bg-primary-100' />
+          </div>
+        </div>
+        <main className='mt-24'>
+          <h2 className='text-5xl font-extrabold text-heading'>
+            Projetcs
+          </h2>
+          
+          <div className='flex flex-col gap-9 mt-9'>
+            <Project />
+            <Project />
+          </div>
+        </main>
+
+        <Footer />
+      </div>
+    </div>
   )
-}
-
-export const getStaticProps: GetStaticProps = async () => {
-  const allProjects = await GraphApi.getAllProjects();
-
-  return {
-    props: {
-      allProjects: allProjects.slice(0, 3),
-    },
-    revalidate: 60 * 60 * 24 // Revalidate every 24h
-  }
 };
 
 export default Home;
