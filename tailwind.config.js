@@ -2,7 +2,13 @@
 module.exports = {
   content: ['./src/**/*.tsx'],
   theme: {
+    fontFamily: {
+      'sans': ['Inter', 'Roboto', 'sans-serif']
+    },
     extend: {
+      backgroundImage: {
+        'grid': 'url(/images/grid.png)'
+      },
       colors: {
         'identity': 'linear-gradient(270deg, #D61E1E 0%, #EB27CC 53.13%, #273BEB 100%)',
         'primary': {
@@ -20,6 +26,15 @@ module.exports = {
         'text': '#737373',
       }
     },
+    container: {
+      padding: '2rem',
+      screens: {
+        sm: '100%',
+        md: '100%',
+        lg: '900px',
+        xl: '900px',
+      }
+    }
   },
   plugins: [],
 }
