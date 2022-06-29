@@ -1,9 +1,10 @@
-import { ArrowUpRight } from "phosphor-react";
 import { Link } from "./Link";
+import { FiArrowUpRight } from 'react-icons/fi';
+import { FaGithub } from "react-icons/fa";
 
 export const Project = () => {
   return (
-    <div className='flex gap-7'>
+    <div className='flex flex-col gap-7 md:flex-row'>
       <div className='flex-1 aspect-video bg-primary-600' />
       <div className='flex-1'>
         <header>
@@ -11,8 +12,10 @@ export const Project = () => {
             <div
               className='w-fit bg-identity rounded-full px-[0.125rem] py-[0.125rem]'
             >
-              <span className='block text-xs px-3 py-[0.125rem] rounded-full bg-primary-900 text-white'>
-                React
+              <span
+                className='block text-[10px] px-3 py-[0.125rem] rounded-full bg-primary-900 text-white uppercase tracking-widest'
+              >
+                Figma
               </span>
             </div>
           </div>
@@ -31,15 +34,15 @@ export const Project = () => {
         <footer className='flex items-center justify-between mt-4'>
           <Link
             href='#'
-            className='text-xs px-3 py-1 text-white border border-primary-300 rounded-full transition-colors hover:bg-primary-300'
+            className='flex items-center gap-2 text-xs px-3 py-2 text-white border border-primary-300 rounded-full transition-colors hover:bg-primary-300'
           >
-            Source Code
+            Source Code <FaGithub size={16} />
           </Link>
           <Link
             href='#'
-            className='flex items-center gap-1 text-xs px-3 py-1 text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
+            className='flex items-center gap-1 text-xs px-3 py-2 text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
           >
-            View Demo <ArrowUpRight size={16} />
+            View Demo <FiArrowUpRight size={16} />
           </Link>
         </footer>
       </div>
