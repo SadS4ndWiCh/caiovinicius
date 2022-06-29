@@ -1,4 +1,5 @@
 import { GetStaticProps, NextPage } from "next";
+import Head from "next/head";
 
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
@@ -18,6 +19,10 @@ const Home: NextPage<Props> = ({ projects }) => {
     <div
       className='flex flex-col items-center min-h-screen relative before:content-[""] before:block before:w-full before:h-1 before:bg-identity '
     >
+      <Head>
+        <title>Caio Vinícius</title>
+      </Head>
+
       <div className='h-full container px-4 bg-grid bg-center bg-contain bg-repeat-y lg:px-0'>
         <Header />
         <div className='block mt-20 md:flex md:justify-between md:flex-row'>
