@@ -9,12 +9,14 @@ import { Footer } from "@components/Footer";
 
 const Home: NextPage = () => {
   return (
-    <div className='min-h-screen'>
+    <div
+      className='min-h-screen relative before:content-[""] before:block before:w-full before:h-1 before:bg-identity'
+    >
       <div className='h-full container p-0 mx-auto bg-grid bg-center bg-contain bg-repeat-y bg-'>
         <Header />
         <div className='flex justify-between mt-20'>
           <div className='max-w-[553px]'>
-            <h1 className='font-extrabold text-5xl text-heading'>
+            <h1 className='font-extrabold text-5xl text-heading leading-tight'>
               I&apos;m Caio Vinícius,<br />
               an 18 year old Brazilian <br />
               web developer.
