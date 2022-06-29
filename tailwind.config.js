@@ -7,10 +7,10 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'grid': 'url(/images/grid.png)'
+        'grid': 'url(/images/grid.png)',
+        'identity': 'linear-gradient(270deg, #D61E1E 0%, #EB27CC 53.13%, #273BEB 100%)'
       },
       colors: {
-        'identity': 'linear-gradient(270deg, #D61E1E 0%, #EB27CC 53.13%, #273BEB 100%)',
         'primary': {
           900: '#171717',
           800: '#202020',
