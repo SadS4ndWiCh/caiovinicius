@@ -23,12 +23,12 @@ type Props = {
 
 export const Project = ({ project }: Props) => {
   return (
-    <div className='flex flex-col gap-7 md:flex-row'>
-      <div className='relative flex-1 aspect-video bg-primary-600'>
+    <div className='flex flex-col gap-7 md:flex-row md:items-start'>
+      <div className='relative flex-1 aspect-video rounded-md overflow-hidden'>
         <Image
           src={project.image[0].url}
           layout='fill'
-          objectFit='cover'
+          objectFit='contain'
           alt={project.name}
         />
       </div>
