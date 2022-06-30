@@ -9,7 +9,7 @@ import { Announcement } from '@components/Announcement';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
-      <Announcement message='The website is currently under development.' />
+      {/* <Announcement message='The website is currently under development.' /> */}
       <Component {...pageProps} />
     </ApolloProvider>
   )
