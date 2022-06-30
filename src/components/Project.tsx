@@ -1,7 +1,9 @@
-import { Link } from "./Link";
+import Image from "next/image";
+
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaGithub } from "react-icons/fa";
-import Image from "next/image";
+
+import { Link } from "./Link";
 
 export interface IProject {
   id: string;
@@ -9,7 +11,7 @@ export interface IProject {
   description: string;
   tags: string[];
   sourceCode: string;
-  demo: string;
+  demo?: string;
   image: {
     width: number;
     height: number;
@@ -61,12 +63,14 @@ export const Project = ({ project }: Props) => {
           >
             Source Code <FaGithub size={16} />
           </Link>
-          <Link
-            href={project.demo}
-            className='flex items-center gap-1 text-xs px-3 py-2 text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
-          >
-            View Demo <FiArrowUpRight size={16} />
-          </Link>
+          { project.demo && (
+            <Link
+              href={project.demo}
+              className='flex items-center gap-1 text-xs px-3 py-2 text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
+            >
+              View Demo <FiArrowUpRight size={16} />
+            </Link>
+          ) }
         </footer>
       </div>
     </div>
