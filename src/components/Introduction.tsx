@@ -1,6 +1,6 @@
 export const Introduction = () => {
   return (
-    <div className='max-w-[553px]'>
+    <div className='md:max-w-[553px]'>
       <h1 className='font-extrabold leading-tight text-4xl text-center text-heading md:text-5xl md:text-left'>
         I&apos;m Caio Vinícius,<br />
         an 18 year old Brazilian <br />
