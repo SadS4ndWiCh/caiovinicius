@@ -1,12 +1,12 @@
 //import Image from "next/image";
 import Image from 'next/future/image';
+import { motion } from 'framer-motion';
+import { useInViewAnimation } from '@hooks/useInViewAnimation';
 
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaGithub } from "react-icons/fa";
 
 import { Link } from "./Link";
-
-import { toBase64, shimmer } from 'src/utils';
 
 export interface IProject {
   id: string;
@@ -26,26 +26,50 @@ type Props = {
   project: IProject
 };
 
+const variants = {
+  hidden: {
+    opacity: 0,
+    y: -30,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+  },
+};
+
 export const Project = ({ project }: Props) => {
+  const { ref, controls } = useInViewAnimation({
+    animationVariantName: 'visible',
+    options: {
+      threshold: .1,
+    }
+  })
+
   return (
-    <div className='grid grid-cols-1 gap-7 md:grid-cols-2 md:items-start'>
+    <motion.div
+      ref={ref}
+      initial='hidden'
+      animate={controls}
+      variants={variants}
+      transition={{
+        duration: 1,
+      }}
+      className='grid grid-cols-1 gap-7 md:grid-cols-2 md:items-start'
+    >
       <Image
         src={project.image[0].url}
         className='w-full aspect-video rounded-md'
         loading='lazy'
-        placeholder="blur"
-        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
         alt={project.name}
       />
-      {/* <div className='relative flex-1 aspect-video rounded-md overflow-hidden'>
-        <Image
-          src={project.image[0].url}
-          className=''
-          alt={project.name}
-        />
-      </div> */}
+      
       <div className='flex-1'>
-        <header>
+        <motion.header
+          initial='hidden'
+          animate={controls}
+          variants={variants}
+          transition={{ delay: .25, duration: 1 }}
+        >
           <div className='flex items-center gap-2'>
             { project.tags.map(tag => (
               <div key={tag} className='w-fit bg-identity rounded-full px-[0.125rem] py-[0.125rem]'>
@@ -62,11 +86,25 @@ export const Project = ({ project }: Props) => {
           >
             { project.name }
           </h3>
-        </header>
-        <p className='mt-4'>
+        </motion.header>
+        
+        <motion.p
+          initial='hidden'
+          animate={controls}
+          variants={variants}
+          transition={{ delay: .5, duration: 1 }}
+          className='mt-4'
+        >
           { project.description }
-        </p>
-        <footer className='flex items-center justify-between mt-4'>
+        </motion.p>
+        
+        <motion.footer
+          initial='hidden'
+          animate={controls}
+          variants={variants}
+          transition={{ delay: .75, duration: 1 }}
+          className='flex items-center justify-between mt-4'
+        >
           <Link
             href={project.sourceCode}
             className='flex items-center gap-2 text-xs px-3 py-2 text-white border border-primary-300 rounded-full transition-colors hover:bg-primary-300'
@@ -81,8 +119,8 @@ export const Project = ({ project }: Props) => {
               View Demo <FiArrowUpRight size={16} />
             </Link>
           ) }
-        </footer>
+        </motion.footer>
       </div>
-    </div>
+    </motion.div>
   )
 };
