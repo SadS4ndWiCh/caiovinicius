@@ -24,6 +24,8 @@ const Home: NextPage<Props> = ({ projects }) => {
     >
       <Head>
         <title>Caio Vinícius</title>
+        <meta name="description" content="Hey! I've been studying web development for just over a year. I'm currently doing an internship at Compass.UOL as a Product 
+      Designer, which has been very good for me to improve on UI/UX issues." />
       </Head>
 
       <div className='h-full container px-4 bg-grid bg-center bg-contain bg-repeat-y lg:px-0'>
