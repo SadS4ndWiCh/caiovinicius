@@ -4,6 +4,8 @@ import Head from "next/head";
 import { client } from "@lib/apollo";
 import { gql } from "@apollo/client";
 
+import { motion } from "framer-motion";
+
 import { Header } from "@components/Header";
 import { Socials } from "@components/Socials";
 import { Introduction } from "@components/Introduction";
@@ -32,9 +34,14 @@ const Home: NextPage<Props> = ({ projects }) => {
           <Socials />
         </div>
         <main className='mt-16 md:mt-24'>
-          <h2 className='text-5xl font-extrabold text-heading'>
+          <motion.h2
+            initial={{ opacity: 0, x: -200 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className='text-5xl font-extrabold text-heading'
+          >
             Projetcs
-          </h2>
+          </motion.h2>
           
           <ProjectList projects={projects} />
         </main>
