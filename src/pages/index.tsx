@@ -1,14 +1,15 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 
-import { Header } from "@components/Header";
-import { Footer } from "@components/Footer";
-import { Socials } from "@components/Socials";
-import { Introduction } from "@components/Introduction";
-import { ProjectList } from "@components/ProjectList";
 import { client } from "@lib/apollo";
 import { gql } from "@apollo/client";
+
+import { Header } from "@components/Header";
+import { Socials } from "@components/Socials";
+import { Introduction } from "@components/Introduction";
 import { IProject } from "@components/Project";
+import { ProjectList } from "@components/ProjectList";
+import { Footer } from "@components/Footer";
 
 type Props = {
   projects: IProject[];
