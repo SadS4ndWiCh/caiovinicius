@@ -1,9 +1,12 @@
-import Image from "next/image";
+//import Image from "next/image";
+import Image from 'next/future/image';
 
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaGithub } from "react-icons/fa";
 
 import { Link } from "./Link";
+
+import { toBase64, shimmer } from 'src/utils';
 
 export interface IProject {
   id: string;
@@ -25,15 +28,22 @@ type Props = {
 
 export const Project = ({ project }: Props) => {
   return (
-    <div className='flex flex-col gap-7 md:flex-row md:items-start'>
-      <div className='relative flex-1 aspect-video rounded-md overflow-hidden'>
+    <div className='grid grid-cols-1 gap-7 md:grid-cols-2 md:items-start'>
+      <Image
+        src={project.image[0].url}
+        className='w-full aspect-video rounded-md'
+        loading='lazy'
+        placeholder="blur"
+        blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+        alt={project.name}
+      />
+      {/* <div className='relative flex-1 aspect-video rounded-md overflow-hidden'>
         <Image
           src={project.image[0].url}
-          layout='fill'
-          objectFit='contain'
+          className=''
           alt={project.name}
         />
-      </div>
+      </div> */}
       <div className='flex-1'>
         <header>
           <div className='flex items-center gap-2'>
