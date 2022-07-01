@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 export const Socials = () => {
   return (
     <div
-      className='flex items-center gap-1 max-w-[553px] w-full mt-10 md:flex-col md:max-w-none md:w-fit md:mt-0'
+      className='flex items-center gap-1 w-full mt-10 md:flex-col md:max-w-none md:w-fit md:mt-0'
     >
       <a
         href='https://twitter.com/SadSAndWiCh_'
