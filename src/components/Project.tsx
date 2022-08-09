@@ -58,6 +58,8 @@ export const Project = ({ project }: Props) => {
     >
       <Image
         src={project.image[0].url}
+        width={project.image[0].width}
+        height={project.image[0].height}
         className='w-full aspect-video rounded-md'
         loading='lazy'
         alt={project.name}
