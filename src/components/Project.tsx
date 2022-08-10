@@ -107,19 +107,23 @@ export const Project = ({ project }: Props) => {
           transition={{ delay: .75, duration: 1 }}
           className='flex items-center justify-between mt-4'
         >
-          <Link
+          <a
             href={project.sourceCode}
+            target='_blank'
+            rel='noreferrer'
             className='flex items-center gap-2 text-xs px-3 py-2 text-white border border-primary-300 rounded-full transition-colors hover:bg-primary-300'
           >
             Source Code <FaGithub size={16} />
-          </Link>
+          </a>
           { project.demo && (
-            <Link
+            <a
               href={project.demo}
+              target='_blank'
+              rel='noreferrer'
               className='flex items-center gap-1 text-xs px-3 py-2 text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
             >
               View Demo <FiArrowUpRight size={16} />
-            </Link>
+            </a>
           ) }
         </motion.footer>
       </div>
