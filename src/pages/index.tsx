@@ -4,50 +4,37 @@ import Head from "next/head";
 import { client } from "@lib/apollo";
 import { gql } from "@apollo/client";
 
-import { motion } from "framer-motion";
-
 import { Header } from "@components/Header";
-import { Socials } from "@components/Socials";
 import { Introduction } from "@components/Introduction";
 import { IProject } from "@components/Project";
-import { ProjectList } from "@components/ProjectList";
+import { Projects } from "@components/Project/Projects";
 import { Footer } from "@components/Footer";
+import { About } from "@components/About";
 
 type Props = {
   projects: IProject[];
+  detail: {
+    heading: string;
+    minimalSummary: string;
+    about: string;
+  }
 };
 
-const Home: NextPage<Props> = ({ projects }) => {
+const Home: NextPage<Props> = ({ projects, detail }) => {
   return (
     <div
-      className='flex flex-col items-center min-h-screen relative before:content-[""] before:block before:w-full before:h-1 before:bg-identity '
+      className='flex flex-col items-center min-h-screen relative before:sticky before:top-0 before:left-0 before:right-0 before:content-[""] before:block before:w-full before:h-1 before:bg-identity '
     >
       <Head>
         <title>Caio Vinícius</title>
-        <meta name="description" content="Hey! I've been studying web development for just over a year. I'm currently doing an internship at Compass.UOL as a Product 
-      Designer, which has been very good for me to improve on UI/UX issues." />
+        <meta name="description" content={detail.minimalSummary} />
       </Head>
 
       <div className='h-full container px-4 bg-grid bg-center bg-contain bg-repeat-y lg:px-0'>
         <Header />
-        <div className='block mt-20 md:flex md:justify-between md:flex-row'>
-          <Introduction />
-
-          <Socials />
-        </div>
-        <main className='mt-16 md:mt-24'>
-          <motion.h2
-            initial={{ opacity: 0, x: -200 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-            className='text-5xl font-extrabold text-heading'
-          >
-            Projetcs
-          </motion.h2>
-          
-          <ProjectList projects={projects} />
-        </main>
-
+        <Introduction heading={detail.heading} summary={detail.minimalSummary} />
+        <Projects projects={projects} />
+        <About about={detail.about} />
         <Footer />
       </div>
     </div>
@@ -55,7 +42,7 @@ const Home: NextPage<Props> = ({ projects }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const GET_PROJECTS_QUERY = gql`
+  const GET_INFORMATIONS_QUERY = gql`
   query {
     projects {
       id
@@ -70,16 +57,23 @@ export const getStaticProps: GetStaticProps = async () => {
         url
       }
     }
+
+    details {
+      heading
+      minimalSummary
+      about
+    }
   }
   `;
 
   const result = await client.query({
-    query: GET_PROJECTS_QUERY,
+    query: GET_INFORMATIONS_QUERY,
   })
   
   return {
     props: {
       projects: result.data.projects,
+      detail: result.data.details[0],
     },
     revalidate: 60 * 60 * 24 // 1 Dia
   }
