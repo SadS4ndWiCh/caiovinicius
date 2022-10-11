@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  @apply scroll-smooth scroll-pt-28;
+}
+
 body {
   @apply bg-primary-900 text-primary-100 antialiased;
 }
