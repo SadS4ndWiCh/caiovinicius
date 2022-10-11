@@ -31,7 +31,7 @@ export const Introduction = ({ heading, summary }: Props) => {
           transition={{
             duration: .5
           }}
-          className='font-extrabold leading-tight text-3xl text-center text-heading sm:text-5xl sm:text-left'
+          className='font-extrabold leading-tight text-3xl text-center text-heading whitespace-pre-line sm:text-5xl sm:text-left'
         >
           { heading }
         </motion.h1>
