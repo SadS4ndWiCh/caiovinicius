@@ -21,9 +21,9 @@ export const Introduction = ({ heading, summary }: Props) => {
   return (
     <section
       id='introduction'
-      className='block mt-20 md:flex md:justify-between md:flex-row'
+      className='block mt-20 sm:flex sm:justify-between sm:flex-row'
     >
-      <div className='md:max-w-[553px]'>
+      <div className='sm:max-w-[553px]'>
         <motion.h1
           initial='hidden'
           animate='visible'
@@ -31,7 +31,7 @@ export const Introduction = ({ heading, summary }: Props) => {
           transition={{
             duration: .5
           }}
-          className='font-extrabold leading-tight text-3xl text-center text-heading md:text-5xl md:text-left'
+          className='font-extrabold leading-tight text-3xl text-center text-heading sm:text-5xl sm:text-left'
         >
           { heading }
         </motion.h1>

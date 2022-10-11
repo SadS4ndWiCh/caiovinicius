@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html {
-  @apply scroll-smooth scroll-pt-28;
+  @apply scroll-smooth scroll-pt-36 sm:scroll-pt-28;
 }
 
 body {

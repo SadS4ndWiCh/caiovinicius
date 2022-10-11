@@ -35,7 +35,7 @@ const socialVariants = {
 export const Socials = () => {
   return (
     <div
-      className='flex items-center gap-1 w-full mt-10 md:flex-col md:max-w-none md:w-fit md:mt-0'
+      className='flex items-center gap-1 w-full mt-10 sm:flex-col sm:max-w-none sm:w-fit sm:mt-0'
     >
       { SOCIALS_LINKS.map((social, i) => (
         <motion.a
@@ -57,7 +57,7 @@ export const Socials = () => {
         initial={{ height: 0 }}
         animate={{ height: '100%' }}
         transition={{ duration: 1 }}
-        className='w-full h-[1px] bg-primary-100 md:w-[1px] md:h-full'
+        className='w-full h-[1px] bg-primary-100 sm:w-[1px] sm:h-full'
       />
     </div>
   )
