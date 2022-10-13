@@ -84,7 +84,7 @@ export const Project = ({ project }: Props) => {
             )) }
           </div>
           <h3
-            className='text-4xl font-bold text-heading'
+            className='mt-1 text-4xl font-bold text-heading'
           >
             { project.name }
           </h3>
