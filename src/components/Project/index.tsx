@@ -1,12 +1,9 @@
-//import Image from "next/image";
-import Image from 'next/future/image';
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { useInViewAnimation } from '@hooks/useInViewAnimation';
 
 import { FiArrowUpRight } from 'react-icons/fi';
 import { FaGithub } from "react-icons/fa";
-
-import { Link } from "../Link";
 
 export interface IProject {
   id: string;
