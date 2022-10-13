@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Socials } from './Socials';
+import { Socials } from '../Socials';
 
 type Props = {
   heading: string;
