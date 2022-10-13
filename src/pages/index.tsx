@@ -4,12 +4,12 @@ import Head from "next/head";
 import { client } from "@lib/apollo";
 import { gql } from "@apollo/client";
 
-import { Header } from "@components/Header";
-import { Introduction } from "@components/Introduction";
+import { Header } from "@components/layout/Header";
+import { Introduction } from "@components/layout/Introduction";
 import { IProject } from "@components/Project";
 import { Projects } from "@components/Project/Projects";
-import { Footer } from "@components/Footer";
-import { About } from "@components/About";
+import { Footer } from "@components/layout/Footer";
+import { About } from "@components/layout/About";
 
 type Props = {
   projects: IProject[];
