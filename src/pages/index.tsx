@@ -6,8 +6,8 @@ import { gql } from "@apollo/client";
 
 import { Header } from "@components/layout/Header";
 import { Introduction } from "@components/layout/Introduction";
-import { IProject } from "@components/Project";
-import { Projects } from "@components/Project/Projects";
+import { IProject } from "@components/project";
+import { Projects } from "@components/project/Projects";
 import { Footer } from "@components/layout/Footer";
 import { About } from "@components/layout/About";
 

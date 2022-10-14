@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { IProject, Project } from ".";
+import { IProject, Project } from "./";
 
 type Props = {
   projects: IProject[];
