@@ -1,3 +1,4 @@
+import { Text } from "@components/Text";
 import { Logo } from "../Icons/Logo";
 
 export const Footer = () => {
@@ -5,7 +6,7 @@ export const Footer = () => {
     <footer className='flex items-center justify-between mt-20 py-11'>
       <Logo />
 
-      <span className='text-xs'>&copy; 2022 - 2022 Caio Vinícius</span>
+      <Text size='sm'>&copy; 2022 - 2022 Caio Vinícius</Text>
     </footer>
   )
 };

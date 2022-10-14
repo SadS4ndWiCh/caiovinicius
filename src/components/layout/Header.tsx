@@ -1,3 +1,4 @@
+import { Text } from "@components/Text";
 import { Logo } from "../Icons/Logo";
 
 const navLinks = [
@@ -14,9 +15,11 @@ export const Header = () => {
       <ul className='flex items-center gap-2'>
         { navLinks.map(link => (
           <li key={link.label}>
-            <a href={link.destination} className='flex p-2 hover:text-white'>
-              { link.label }
-            </a>
+            <Text asChild>
+              <a href={link.destination} className='flex p-2 hover:text-white'>
+                { link.label }
+              </a>
+            </Text>
           </li>
         )) }
       </ul> 
