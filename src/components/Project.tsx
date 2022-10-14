@@ -74,12 +74,11 @@ export const Project = ({ project }: Props) => {
           <div className='flex items-center gap-2'>
             { project.tags.map(tag => (
               <div key={tag} className='w-fit bg-identity rounded-full px-[0.125rem] py-[0.125rem]'>
-                <Text
-                  size='sm'
+                <span
                   className='block text-[10px] px-3 py-[0.125rem] rounded-full bg-primary-900 text-white uppercase tracking-widest'
                 >
                   { tag }
-                </Text>
+                </span>
               </div>
             )) }
           </div>
@@ -111,27 +110,24 @@ export const Project = ({ project }: Props) => {
           transition={{ delay: .75, duration: 1 }}
           className='flex items-center justify-between mt-4'
         >
-          <Text asChild size='sm'>
+          <a
+            href={project.sourceCode}
+            target='_blank'
+            rel='noreferrer'
+            className='flex items-center gap-2 px-3 py-2 text-xs text-white border border-primary-300 rounded-full transition-colors hover:bg-primary-300'
+          >
+            Source Code <FaGithub size={16} />
+          </a>
+          
+          { project.demo && (
             <a
-              href={project.sourceCode}
+              href={project.demo}
               target='_blank'
               rel='noreferrer'
-              className='flex items-center gap-2 px-3 py-2 text-white border border-primary-300 rounded-full transition-colors hover:bg-primary-300'
+              className='flex items-center gap-1 px-3 py-2 text-xs text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
             >
-              Source Code <FaGithub size={16} />
+              View Demo <FiArrowUpRight size={16} />
             </a>
-          </Text>
-          { project.demo && (
-            <Text asChild size='sm'>
-              <a
-                href={project.demo}
-                target='_blank'
-                rel='noreferrer'
-                className='flex items-center gap-1 px-3 py-2 text-white border border-primary-300 rounded-full bg-primary-300 transition-colors hover:bg-primary-900'
-              >
-                View Demo <FiArrowUpRight size={16} />
-              </a>
-            </Text>
           ) }
         </motion.footer>
       </div>
