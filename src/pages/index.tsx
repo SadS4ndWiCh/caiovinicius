@@ -23,7 +23,7 @@ type Props = {
 const Home: NextPage<Props> = ({ projects, detail }) => {
   return (
     <div
-      className='flex flex-col items-center min-h-screen relative before:sticky before:top-0 before:left-0 before:right-0 before:content-[""] before:block before:w-full before:h-1 before:bg-identity '
+      className='flex flex-col items-center min-h-screen relative before:sticky before:top-0 before:left-0 before:right-0 before:content-[""] before:z-50 before:block before:w-full before:h-1 before:bg-identity '
     >
       <Head>
         <title>Caio Vinícius</title>
