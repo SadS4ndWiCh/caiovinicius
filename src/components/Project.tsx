@@ -59,7 +59,7 @@ export const Project = ({ project }: Props) => {
         src={project.image[0].url}
         width={project.image[0].width}
         height={project.image[0].height}
-        className='w-full aspect-video rounded-md'
+        className='w-full aspect-video rounded-md shadow-gray-blur'
         loading='lazy'
         alt={project.name}
       />
@@ -75,7 +75,7 @@ export const Project = ({ project }: Props) => {
             { project.tags.map(tag => (
               <div key={tag} className='w-fit bg-identity rounded-full px-[0.125rem] py-[0.125rem]'>
                 <span
-                  className='block text-[10px] px-3 py-[0.125rem] rounded-full bg-primary-900 text-white uppercase tracking-widest'
+                  className='block text-[10px] px-3 py-[0.125rem] rounded-full bg-primary-900 text-white uppercase tracking-widest shadow-identity'
                 >
                   { tag }
                 </span>
