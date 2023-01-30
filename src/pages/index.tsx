@@ -7,9 +7,10 @@ import { gql } from "@apollo/client";
 import { Header } from "@components/layout/Header";
 import { Introduction } from "@components/layout/Introduction";
 import { IProject } from "@components/Project";
-import { Projects } from "@components/Projects";
+import { Projects } from "@components/layout/Projects";
 import { Footer } from "@components/layout/Footer";
 import { About } from "@components/layout/About";
+import { Background } from "@components/layout/Background";
 
 type Props = {
   projects: IProject[];
@@ -23,14 +24,16 @@ type Props = {
 const Home: NextPage<Props> = ({ projects, detail }) => {
   return (
     <div
-      className='flex flex-col items-center min-h-screen relative before:sticky before:top-0 before:left-0 before:right-0 before:content-[""] before:z-50 before:block before:w-full before:h-1 before:bg-identity '
+      className='flex flex-col min-h-screen relative before:sticky before:top-0 before:left-0 before:right-0 before:content-[""] before:z-50 before:block before:w-full before:h-1 before:bg-identity'
     >
       <Head>
         <title>Caio Vinícius</title>
         <meta name="description" content={detail.minimalSummary} />
       </Head>
 
-      <div className='h-full container px-4 bg-grid bg-center bg-contain bg-repeat-y lg:px-0'>
+      <Background />
+
+      <div className='h-full lg:px-0'>
         <Header />
         <Introduction heading={detail.heading} summary={detail.minimalSummary} />
         <Projects projects={projects} />
