@@ -1,5 +1,5 @@
-import { Text } from "@components/Text";
-import { Logo } from "../Icons/Logo";
+import { Text } from "@components/ui/Text";
+import { Icons } from "../Icons";
 
 const navLinks = [
   { label: 'Introduction', destination: '#introduction' },
@@ -9,8 +9,8 @@ const navLinks = [
 
 export const Header = () => {
   return (
-    <header className='sticky top-2 left-0 right-0 z-10 flex flex-col gap-4 items-center justify-center px-6 py-6 backdrop-saturate-[180%] backdrop-blur-[20px] rounded-lg sm:justify-between sm:flex-row'>
-      <Logo />
+    <header className='fixed top-2 left-0 right-0 z-10 flex flex-col gap-4 items-center justify-center mx-4 px-6 py-6 backdrop-saturate-[180%] backdrop-blur-[20px] rounded-lg sm:justify-between sm:flex-row'>
+      <Icons.logo />
 
       <ul className='flex items-center gap-2'>
         { navLinks.map(link => (

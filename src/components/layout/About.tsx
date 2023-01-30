@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 import { useInViewAnimation } from "@hooks/useInViewAnimation";
 
-import { Heading } from "@components/Heading";
-import { Text } from "@components/Text";
+import { Heading } from "@components/ui/Heading";
+import { Text } from "@components/ui/Text";
 
 type Props = {
 	about: string;
@@ -31,7 +31,7 @@ export const About = ({ about }: Props) => {
 	return (
     <section
 			id='about'
-			className="mt-16 md:mt-24"
+			className="container mx-auto mt-16 md:mt-24"
 		>
 			<Heading asChild size='lg'>
 				<motion.h2

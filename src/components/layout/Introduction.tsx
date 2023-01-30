@@ -1,6 +1,7 @@
-import { Heading } from '@components/Heading';
-import { Text } from '@components/Text';
 import { motion } from 'framer-motion';
+
+import { Heading } from '@components/ui/Heading';
+import { Text } from '@components/ui/Text';
 import { Socials } from '../Socials';
 
 type Props = {
@@ -23,7 +24,7 @@ export const Introduction = ({ heading, summary }: Props) => {
   return (
     <section
       id='introduction'
-      className='block mt-20 sm:flex sm:justify-between sm:flex-row before:absolute before:inset-0 before:-z-10 before:max-h-screen before:bg-lights before:bg-no-repeat '
+      className='container flex flex-col justify-center lg:mx-auto min-h-screen'
     >
       <div className='sm:max-w-[553px]'>
         <Heading asChild size='lg'>
@@ -36,10 +37,11 @@ export const Introduction = ({ heading, summary }: Props) => {
             }}
             className='leading-tight text-center text-heading whitespace-pre-line sm:text-5xl sm:text-left'
           >
-            { heading }
+            I&apos;m <span className='text-transparent bg-clip-text bg-identity'>Caio Vinícius</span>{'\n'}
+            an 18 year old Brazilian{'\n'}
+            <span className='text-transparent bg-clip-text bg-identity'>web developer</span>
           </motion.h1>
         </Heading>
-        
         
         <Text asChild>
           <motion.p
@@ -59,6 +61,5 @@ export const Introduction = ({ heading, summary }: Props) => {
 
       <Socials />
     </section>
-    
   )
 };
