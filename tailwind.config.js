@@ -15,12 +15,9 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        'lights': 'url(/images/backgroud-light.png)',
-        'grid': 'url(/images/grid.png)',
         'identity': 'linear-gradient(270deg, #D61E1E 0%, #EB27CC 53.13%, #273BEB 100%)'
       },
       boxShadow: {
-        'gray-blur': '0 0 20px #3f3f46ab',
         identity: '0 0 10px #EB27CC',
       },
       colors: {
@@ -44,8 +41,8 @@ module.exports = {
       screens: {
         sm: '100%',
         md: '100%',
-        lg: '900px',
-        xl: '900px',
+        lg: '1000px',
+        xl: '1000px',
       }
     }
   },
