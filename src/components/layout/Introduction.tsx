@@ -4,21 +4,12 @@ import { Heading } from '@components/ui/Heading';
 import { Text } from '@components/ui/Text';
 import { Socials } from '../Socials';
 
+import { fadeInDown } from 'src/utils/animations';
+
 type Props = {
   heading: string;
   summary: string;
 }
-
-const variants = {
-  hidden: {
-    opacity: 0,
-    y: -50,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
 
 export const Introduction = ({ heading, summary }: Props) => {
   return (
@@ -31,7 +22,7 @@ export const Introduction = ({ heading, summary }: Props) => {
           <motion.h1
             initial='hidden'
             animate='visible'
-            variants={variants}
+            variants={fadeInDown}
             transition={{
               duration: .5
             }}
@@ -47,7 +38,7 @@ export const Introduction = ({ heading, summary }: Props) => {
           <motion.p
             initial='hidden'
             animate='visible'
-            variants={variants}
+            variants={fadeInDown}
             transition={{
               delay: .25,
               duration: .5

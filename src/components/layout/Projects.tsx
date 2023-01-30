@@ -1,22 +1,12 @@
-import { Heading } from "@components/ui/Heading";
 import { motion } from "framer-motion";
+import { Heading } from "@components/ui/Heading";
 import { IProject, Project } from "../Project";
 
 import { useInViewAnimation } from "@hooks/useInViewAnimation";
+import { fadeInDown } from "src/utils/animations";
 
 type Props = {
   projects: IProject[];
-};
-
-const variants = {
-  hidden: {
-    opacity: 0,
-    y: -30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
 };
 
 export const Projects = ({ projects }: Props) => {
@@ -35,7 +25,7 @@ export const Projects = ({ projects }: Props) => {
           ref={ref}
           initial='hidden'
           animate={controls}
-          variants={variants}
+          variants={fadeInDown}
           transition={{ duration: 1 }}
         >
           Projetcs
