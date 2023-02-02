@@ -12,14 +12,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.7.1",
     "@portabletext/react": "^2.0.1",
     "@radix-ui/react-slot": "^1.0.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.0.0",
     "clsx": "^1.2.1",
     "framer-motion": "^7.6.6",
-    "graphql": "^16.6.0",
     "next": "^13.1.6",
     "next-sanity": "^4.1.2",
     "react": "^18.2.0",
