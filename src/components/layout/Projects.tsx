@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 import { Heading } from "@components/ui/Heading";
-import { IProject, Project } from "../Project";
+import { Project } from "../Project";
 
 import { useInViewAnimation } from "@hooks/useInViewAnimation";
 import { fadeInDown } from "src/utils/animations";
 
 type Props = {
-  projects: IProject[];
+  projects: Project[];
 };
 
 export const Projects = ({ projects }: Props) => {
@@ -35,7 +35,7 @@ export const Projects = ({ projects }: Props) => {
       <div className='flex flex-col gap-9 mt-9'>
         { projects.map(project => (
           <Project
-            key={project.id}
+            key={project._id}
             project={project}
           />
         )) }

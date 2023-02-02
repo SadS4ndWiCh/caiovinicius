@@ -1,28 +1,15 @@
 import Image from "next/image";
 import { motion } from 'framer-motion';
 
-import { Buttons } from "./Buttons";
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 import { useInViewAnimation } from '@hooks/useInViewAnimation';
 import { fadeInDown } from "src/utils/animations";
-
-export interface IProject {
-  id: string;
-  name: string;
-  description: string;
-  tags: string[];
-  sourceCode: string;
-  demo?: string;
-  image: {
-    width: number;
-    height: number;
-    url: string;
-  }[]
-};
+import { urlFor } from "src/utils/url-for";
 
 type Props = {
-  project: IProject
+  project: Project
 };
 
 export const Project = ({ project }: Props) => {
@@ -42,27 +29,28 @@ export const Project = ({ project }: Props) => {
       transition={{ duration: 1 }}
       className='grid grid-cols-1 gap-7 md:grid-cols-2 md:items-start'
     >
-      <Image
-        src={project.image[0].url}
-        width={project.image[0].width}
-        height={project.image[0].height}
-        className='w-full aspect-video rounded-md duration-500'
-        loading='lazy'
-        alt={project.name}
-      />
+      <div className='relative w-full h-60'>
+        <Image
+          src={urlFor(project.thumb).url()}
+          className='object-cover object-left w-full aspect-video rounded-md duration-500'
+          loading='lazy'
+          alt={project.title}
+          fill
+        />
+      </div>
       
       <div className='flex-1'>
         <Header
           data={{
-            tags: project.tags,
-            name: project.name,
+            tags: project.categories,
+            name: project.title,
             description: project.description,
           }}
           controls={controls}
           variants={fadeInDown}
         />
 
-        <Buttons
+        <Footer
           data={{ sourceCode: project.sourceCode, demo: project.demo }}
           animate={controls}
           variants={fadeInDown}

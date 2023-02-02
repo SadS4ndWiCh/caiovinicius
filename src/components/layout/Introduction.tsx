@@ -7,11 +7,10 @@ import { Socials } from '../Socials';
 import { fadeInDown } from 'src/utils/animations';
 
 type Props = {
-  heading: string;
   summary: string;
 }
 
-export const Introduction = ({ heading, summary }: Props) => {
+export const Introduction = ({ summary }: Props) => {
   return (
     <section
       id='introduction'

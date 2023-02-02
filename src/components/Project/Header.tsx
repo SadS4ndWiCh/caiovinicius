@@ -10,7 +10,7 @@ import { Tags } from "./Tags";
 
 type Props = HTMLMotionProps<'footer'> & {
 	data: {
-		tags: string[];
+		tags: Category[];
 		name: string;
 		description: string;
 	}
@@ -26,7 +26,7 @@ export const Header = ({ controls, variants, data }: Props) => {
 				variants={variants}
 				transition={{ delay: .25, duration: 1 }}
 			>
-				<Tags tags={data.tags} />
+				<Tags tags={data.tags.map(category => category.title)} />
 				
 				<Heading asChild size='md'>
 					<h3
