@@ -1,43 +1,41 @@
 import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-
-import { client } from "@lib/apollo";
-import { gql } from "@apollo/client";
+import { groq } from "next-sanity";
 
 import { Header } from "@components/layout/Header";
 import { Introduction } from "@components/layout/Introduction";
-import { IProject } from "@components/Project";
 import { Projects } from "@components/layout/Projects";
 import { Footer } from "@components/layout/Footer";
 import { About } from "@components/layout/About";
 import { Background } from "@components/layout/Background";
 
+import { client } from "@lib/sanity.client";
+
 type Props = {
-  projects: IProject[];
-  detail: {
-    heading: string;
-    minimalSummary: string;
-    about: string;
+  projects: Project[];
+  about: {
+    summary: string;
+    aboutMe: string;
   }
 };
 
-const Home: NextPage<Props> = ({ projects, detail }) => {
+const Home: NextPage<Props> = ({ projects, about }) => {
   return (
     <div
       className='flex flex-col min-h-screen relative before:sticky before:top-0 before:left-0 before:right-0 before:content-[""] before:z-50 before:block before:w-full before:h-1 before:bg-identity'
     >
       <Head>
         <title>Caio Vinícius</title>
-        <meta name="description" content={detail.minimalSummary} />
+        <meta name="description" content={about.summary} />
       </Head>
 
       <Background />
 
       <div className='h-full lg:px-0'>
         <Header />
-        <Introduction heading={detail.heading} summary={detail.minimalSummary} />
+        <Introduction summary={about.summary} />
         <Projects projects={projects} />
-        <About about={detail.about} />
+        <About about={about.aboutMe} />
         <Footer />
       </div>
     </div>
@@ -45,38 +43,32 @@ const Home: NextPage<Props> = ({ projects, detail }) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const GET_INFORMATIONS_QUERY = gql`
-  query {
-    projects {
-      id
-      name
-      description
-      tags
-      sourceCode
-      demo
-      image {
-        width
-        height
-        url
-      }
+  const query = groq`
+    {
+      "projects": *[_type == 'project'] {
+        _id,
+        title,
+        thumb,
+        categories[]->{
+          title
+        },
+        description,
+        sourceCode,
+        demo
+      } | order(_createdAt desc),
+      "about": *[_type == 'about'] {
+        summary,
+        aboutMe
+      }[0]
     }
-
-    details {
-      heading
-      minimalSummary
-      about
-    }
-  }
   `;
 
-  const result = await client.query({
-    query: GET_INFORMATIONS_QUERY,
-  })
+  const { projects, about } = await client.fetch(query);
   
   return {
     props: {
-      projects: result.data.projects,
-      detail: result.data.details[0],
+      projects,
+      about,
     },
     revalidate: 60 * 60 * 24 // 1 Dia
   }
