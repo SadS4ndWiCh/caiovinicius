@@ -9,7 +9,7 @@ type Props = HTMLMotionProps<'footer'> & {
 	}
 };
 
-export const Buttons = ({ data, animate, variants }: Props) => {
+export const Footer = ({ data, animate, variants }: Props) => {
 	return (
 		<motion.footer
 			initial='hidden'
