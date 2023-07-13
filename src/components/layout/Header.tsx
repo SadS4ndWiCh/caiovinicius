@@ -1,4 +1,4 @@
-import { Text } from "@components/ui/Text";
+import { Text } from "~/components/ui/Text";
 import { Icons } from "../Icons";
 
 const navLinks = [
@@ -13,16 +13,16 @@ export const Header = () => {
       <Icons.logo />
 
       <ul className='flex items-center gap-2'>
-        { navLinks.map(link => (
+        {navLinks.map(link => (
           <li key={link.label}>
             <Text asChild>
               <a href={link.destination} className='flex p-2 hover:text-white'>
-                { link.label }
+                {link.label}
               </a>
             </Text>
           </li>
-        )) }
-      </ul> 
+        ))}
+      </ul>
     </header>
   )
 };
