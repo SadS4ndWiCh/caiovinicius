@@ -6,6 +6,9 @@ import { IBM_Plex_Sans as FontSans } from 'next/font/google'
 
 import '~/styles/global.css'
 
+import { Footer } from '~/components/layouts/footer'
+import { Separator } from '~/components/ui/separator'
+
 import { cn } from '~/lib/utils'
 
 const fontSans = FontSans({
@@ -34,11 +37,15 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body
         className={cn(
-          'min-h-screen bg-slate-950 font-sans antialiased',
+          'flex flex-col min-h-screen bg-slate-950 font-sans antialiased',
           fontSans.variable,
         )}
       >
-        {children}
+        <main className="flex-1">{children}</main>
+
+        <Separator className="my-6 bg-slate-800" />
+
+        <Footer />
       </body>
     </html>
   )
