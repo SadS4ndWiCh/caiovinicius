@@ -85,8 +85,8 @@ export default async function Home() {
                 height={600}
                 className="rounded-md h-72 object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/0 to-90% to-slate-950" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 space-y-2">
+              <div className="md:absolute md:inset-0 md:bg-gradient-to-b md:from-slate-950/0 md:to-90% md:to-slate-950" />
+              <div className="space-y-2 p-2 md:absolute md:bottom-0 md:left-0 md:right-0 md:p-4">
                 <h3 className="text-white underline underline-offset-4">
                   {project.title}
                 </h3>
@@ -106,6 +106,8 @@ export default async function Home() {
           {about.aboutMe}
         </p>
       </section>
+
+      <Separator className="my-6 bg-slate-800" />
 
       <footer className="flex flex-col items-center justify-between py-4 gap-4 md:flex-row">
         <Spotify />
