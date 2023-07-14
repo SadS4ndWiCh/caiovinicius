@@ -2,14 +2,17 @@ import type { ReactNode } from 'react'
 
 import type { Metadata } from 'next'
 
-import { Roboto } from 'next/font/google'
+import { IBM_Plex_Sans as FontSans } from 'next/font/google'
 
-import '@styles/global.css'
+import '~/styles/global.css'
 
-const roboto = Roboto({
+import { cn } from '~/lib/utils'
+
+const fontSans = FontSans({
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['300', '400', '500', '600', '700'],
   variable: '--font-sans',
+  preload: false,
 })
 
 export const metadata: Metadata = {
@@ -29,7 +32,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html>
       <head />
-      <body className={roboto.className}>{children}</body>
+      <body
+        className={cn(
+          'min-h-screen bg-slate-950 font-sans antialiased',
+          fontSans.variable,
+        )}
+      >
+        {children}
+      </body>
     </html>
   )
 }
