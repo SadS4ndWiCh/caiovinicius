@@ -4,6 +4,7 @@ import type { Metadata } from 'next'
 
 import { IBM_Plex_Sans as FontSans } from 'next/font/google'
 
+import { Analytics } from '@vercel/analytics/react'
 import { siteConfig } from '~/config/site'
 import '~/styles/global.css'
 
@@ -48,6 +49,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Separator className="my-6 bg-slate-800" />
 
         <Footer />
+        <Analytics />
       </body>
     </html>
   )
