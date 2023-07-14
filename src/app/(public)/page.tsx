@@ -6,6 +6,7 @@ import { cachedClient } from 'src/sanity/lib/client'
 import { aboutQuery, projectsQuery } from 'src/sanity/lib/queries'
 import { urlForImage } from '~/sanity/lib/image'
 
+import { Spotify } from '~/components/spotify'
 import { buttonVariants } from '~/components/ui/button'
 import { Separator } from '~/components/ui/separator'
 
@@ -106,8 +107,10 @@ export default async function Home() {
         </p>
       </section>
 
-      <footer className="py-4">
-        <p className="text-slate-400 text-sm">
+      <footer className="flex flex-col items-center justify-between py-4 gap-4 md:flex-row">
+        <Spotify />
+
+        <p className="text-slate-400 text-sm flex-shrink-0">
           All rights reserved © Caio Vinícius 2023
         </p>
       </footer>
