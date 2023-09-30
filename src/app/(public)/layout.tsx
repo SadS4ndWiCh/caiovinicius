@@ -2,8 +2,6 @@ import type { ReactNode } from 'react'
 
 import type { Metadata } from 'next'
 
-import { IBM_Plex_Sans as FontSans } from 'next/font/google'
-
 import { Analytics } from '@vercel/analytics/react'
 import { siteConfig } from '~/config/site'
 import '~/styles/global.css'
@@ -12,13 +10,7 @@ import { Footer } from '~/components/layouts/footer'
 import { Separator } from '~/components/ui/separator'
 
 import { cn } from '~/lib/utils'
-
-const fontSans = FontSans({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-sans',
-  preload: false,
-})
+import { fontSans } from '../fonts'
 
 export const metadata: Metadata = {
   title: {
@@ -40,13 +32,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head />
       <body
         className={cn(
-          'flex flex-col min-h-screen bg-slate-950 font-sans antialiased',
+          'flex flex-col min-h-screen bg-background text-foreground font-sans antialiased',
           fontSans.variable,
         )}
       >
         <main className="flex-1">{children}</main>
 
-        <Separator className="my-6 bg-slate-800" />
+        <Separator className="my-6 bg-secondary" />
 
         <Footer />
         <Analytics />

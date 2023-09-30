@@ -11,7 +11,7 @@ export function Socials() {
         href="https://twitter.com/SadSAndWiCh_"
         rel="noreferrer"
         target="_blank"
-        className={cn(buttonVariants({ size: 'icon' }))}
+        className={cn(buttonVariants({ size: 'icon', variant: 'ghost' }))}
       >
         <Twitter className="w-4 h-4" />
       </a>
@@ -19,7 +19,7 @@ export function Socials() {
         href="https://www.linkedin.com/in/caiocamargo007/"
         rel="noreferrer"
         target="_blank"
-        className={cn(buttonVariants({ size: 'icon' }))}
+        className={cn(buttonVariants({ size: 'icon', variant: 'ghost' }))}
       >
         <Linkedin className="w-4 h-4" />
       </a>
@@ -27,7 +27,7 @@ export function Socials() {
         href="https://github.com/SadS4ndWiCh"
         rel="noreferrer"
         target="_blank"
-        className={cn(buttonVariants({ size: 'icon' }))}
+        className={cn(buttonVariants({ size: 'icon', variant: 'ghost' }))}
       >
         <Github className="w-4 h-4" />
       </a>

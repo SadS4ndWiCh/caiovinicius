@@ -17,7 +17,7 @@ export function Footer() {
           <nav className="flex justify-end gap-4">
             {siteConfig.footerNav.map((nav) => (
               <div key={nav.title}>
-                <h4 className="text-center text-white font-bold text-sm">
+                <h4 className="text-center font-bold text-sm">
                   {nav.title}
                 </h4>
 
@@ -30,7 +30,7 @@ export function Footer() {
                         target={link.external ? '_blank' : undefined}
                         className={cn(
                           buttonVariants({ variant: 'link', size: 'sm' }),
-                          'text-slate-300 text-sm',
+                          'text-muted-foreground text-sm',
                         )}
                       >
                         {link.title}
@@ -44,16 +44,16 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
-          <p className="text-xs text-slate-400">
+          <p className="text-xs text-muted-foreground">
             Built by{' '}
             <a
               href={links.github}
-              className="font-bold text-slate-300 underline underline-offset-4"
+              className="text-foreground hover:underline hover:underline-offset-4"
             >
               Caio Vinícius
             </a>
           </p>
-          <p className="text-slate-400 text-xs text-center flex-shrink-0 md:text-left">
+          <p className="text-muted-foreground text-xs text-center flex-shrink-0 md:text-left">
             All rights reserved © Caio Vinícius 2023
           </p>
         </div>
