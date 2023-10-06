@@ -1,6 +1,6 @@
 import { siteConfig } from '~/config/site'
 
-import { cachedClient } from '~/sanity/lib/client'
+import { sanityFetch } from '~/sanity/lib/client'
 import { aboutQuery } from '~/sanity/lib/queries'
 
 import { Projects } from '~/components/projects'
@@ -13,7 +13,10 @@ type About = {
 }
 
 export default async function Home() {
-  const about: About = await cachedClient(aboutQuery)
+  const about = await sanityFetch<About>({
+    query: aboutQuery,
+    tags: ['about']
+  });
 
   return (
     <div className="flex flex-col max-w-3xl mx-auto p-4">

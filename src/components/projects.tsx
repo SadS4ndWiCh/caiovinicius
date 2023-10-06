@@ -1,10 +1,13 @@
-import { cachedClient } from '~/sanity/lib/client'
+import { sanityFetch } from '~/sanity/lib/client'
 import { projectsQuery } from '~/sanity/lib/queries'
 
 import { IProject } from '~/types'
 
 export async function Projects() {
-  const projects: IProject[] = await cachedClient(projectsQuery)
+  const projects = await sanityFetch<IProject[]>({
+    query: projectsQuery,
+    tags: ['projects']
+  });
 
   return (
     <div className="space-y-4">
