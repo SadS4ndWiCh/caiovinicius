@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { links, siteConfig } from '~/config/site'
+import { siteConfig } from '~/config/site'
 
 import { cn } from '~/lib/utils'
 
@@ -17,7 +17,7 @@ export function Footer() {
           <nav className="flex justify-end gap-4">
             {siteConfig.footerNav.map((nav) => (
               <div key={nav.title}>
-                <h4 className="text-center font-bold text-sm">
+                <h4 className="text-center text-sm">
                   {nav.title}
                 </h4>
 
@@ -41,21 +41,6 @@ export function Footer() {
               </div>
             ))}
           </nav>
-        </div>
-
-        <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
-          <p className="text-xs text-muted-foreground">
-            Built by{' '}
-            <a
-              href={links.github}
-              className="text-foreground hover:underline hover:underline-offset-4"
-            >
-              Caio Vinícius
-            </a>
-          </p>
-          <p className="text-muted-foreground text-xs text-center flex-shrink-0 md:text-left">
-            All rights reserved © Caio Vinícius 2023
-          </p>
         </div>
       </div>
     </footer>
