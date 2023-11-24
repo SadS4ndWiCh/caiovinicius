@@ -1,50 +1,45 @@
-import { siteConfig } from '~/config/site'
+import Image from 'next/image'
 
-import { sanityFetch } from '~/sanity/lib/client'
-import { aboutQuery } from '~/sanity/lib/queries'
+import { siteConfig } from '~/config/site'
 
 import { Projects } from '~/components/projects'
 import { Socials } from '~/components/socials'
-import { Separator } from '~/components/ui/separator'
-
-type About = {
-  summary: string
-  aboutMe: string
-}
 
 export default async function Home() {
-  const about = await sanityFetch<About>({
-    query: aboutQuery,
-    tags: ['about']
-  });
-
   return (
-    <div className="flex flex-col max-w-3xl mx-auto p-4">
+    <div className="flex flex-col max-w-3xl mx-auto p-4 space-y-6">
       <section className="mt-4 space-y-3">
-        <div className="space-y-1">
-          <h1 className="text-xl">{siteConfig.name}</h1>
-          <p className="text-muted-foreground leading-relaxed">{about.summary}</p>
+        <div className='flex flex-col sm:flex-row items-center text-center sm:text-left gap-4'>
+          <Image
+            src="https://github.com/SadS4ndWiCh.png"
+            width={600}
+            height={600}
+            alt="Foto de perfil do GitHub"
+            className='w-24 h-24'
+          />
+          <div>
+            <h1 className="text-xl">{siteConfig.name}</h1>
+            <p className="text-muted-foreground leading-relaxed">Definitely a web developer</p>
+            <Socials />
+          </div>
         </div>
-
-        <Socials />
       </section>
 
-      <Separator className="my-6 bg-secondary" />
+      <section>
+        <div className='p-6 border border-border space-y-2'>
+          <p>Hello, I'm Caio Vinícius, a Brazilian studying Systems Analysis and Development.</p>
+          <p>
+            When I'm not coding, I enjoy researching new technologies or exploring new tools, but I
+            can't miss some funny videos to distract myself, some songs to refresh my mind and play
+            some games to relax... maybe...
+          </p>
+        </div>
+      </section>
 
       <section className="flex-1 space-y-2">
         <h2 className="text-xl">Projects</h2>
 
         <Projects />
-      </section>
-
-      <Separator className="my-6 bg-secondary" />
-
-      <section className="space-y-2">
-        <h2 className="text-xl">About me</h2>
-
-        <p className="text-muted-foreground leading-relaxed whitespace-pre-line">
-          {about.aboutMe}
-        </p>
       </section>
     </div>
   )

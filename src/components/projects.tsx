@@ -1,3 +1,5 @@
+import { ArrowUpRight } from 'lucide-react';
+
 import { sanityFetch } from '~/sanity/lib/client'
 import { projectsQuery } from '~/sanity/lib/queries'
 
@@ -20,8 +22,8 @@ export async function Projects() {
           className="block space-y-1 rounded relative group"
         >
           <div className="space-y-2">
-            <h3 className="group-hover:underline group-hover:underline-offset-4">
-              {project.title}
+            <h3 className="flex items-center group-hover:underline group-hover:underline-offset-4">
+              <ArrowUpRight className='w-4 h-4 mr-1' /> {project.title}
             </h3>
             <p className="text-muted-foreground">{project.description}</p>
           </div>

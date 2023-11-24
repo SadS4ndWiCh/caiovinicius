@@ -38,8 +38,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       >
         <main className="min-h-screen">{children}</main>
 
-        <Separator className="my-6 bg-secondary" />
-
         <Footer />
         <Analytics />
       </body>
