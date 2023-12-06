@@ -36,7 +36,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           fontSans.variable,
         )}
       >
-        <main className="min-h-screen">{children}</main>
+        <main className="flex-1">{children}</main>
 
         <Footer />
         <Analytics />
