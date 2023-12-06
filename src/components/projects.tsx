@@ -1,21 +1,12 @@
 import { ArrowUpRight } from 'lucide-react';
-
-import { sanityFetch } from '~/sanity/lib/client'
-import { projectsQuery } from '~/sanity/lib/queries'
-
-import { IProject } from '~/types'
+import { projects } from '~/config/projects';
 
 export async function Projects() {
-  const projects = await sanityFetch<IProject[]>({
-    query: projectsQuery,
-    tags: ['projects']
-  });
-
   return (
     <div className="space-y-4">
       {projects.map((project) => (
         <a
-          key={project._id}
+          key={project.title}
           href={project.sourceCode}
           rel="noreferrer"
           target="_blank"
