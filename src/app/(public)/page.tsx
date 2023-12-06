@@ -4,6 +4,7 @@ import { siteConfig } from '~/config/site'
 
 import { Projects } from '~/components/projects'
 import { Socials } from '~/components/socials'
+import { Experiences } from '~/components/experiences'
 
 export default async function Home() {
   return (
@@ -40,6 +41,12 @@ export default async function Home() {
         <h2 className="text-xl">Projects</h2>
 
         <Projects />
+      </section>
+
+      <section className="space-y-2">
+        <h2 className="text-xl">Experiences</h2>
+
+        <Experiences />
       </section>
     </div>
   )
