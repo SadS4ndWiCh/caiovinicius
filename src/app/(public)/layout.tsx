@@ -7,7 +7,6 @@ import { siteConfig } from '~/config/site'
 import '~/styles/global.css'
 
 import { Footer } from '~/components/layouts/footer'
-import { Separator } from '~/components/ui/separator'
 
 import { cn } from '~/lib/utils'
 import { fontSans } from '../fonts'
