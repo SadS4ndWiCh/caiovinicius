@@ -20,7 +20,7 @@ export const siteConfig = {
     },
     {
       title: 'GitHub',
-      href: links.github,
+      href: links.githubAccount,
     },
   ],
 }
