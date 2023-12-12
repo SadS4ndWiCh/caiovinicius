@@ -12,15 +12,19 @@ export function Experiences() {
           <div className="absolute w-4 h-4 rounded-full bg-background border border-border left-0 -translate-x-1/2" />
 
           <h3>{experience.company}</h3>
-          <p className="text-muted-foreground">{experience.description}</p>
+          <p className="text-muted-foreground my-2">{experience.description}</p>
 
-          <div className="flex items-center gap-2 mt-2 text-sm text-muted-foreground">
-            <time>{dateFormatter.format(new Date(experience.startsAt))}</time>
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <time dateTime={experience.startsAt}>
+              {dateFormatter.format(new Date(experience.startsAt))}
+            </time>
 
             {experience.endsAt && (
               <>
                 <span>&bull;</span>
-                <time>{dateFormatter.format(new Date(experience.endsAt))}</time>
+                <time dateTime={experience.endsAt}>
+                  {dateFormatter.format(new Date(experience.endsAt))}
+                </time>
               </>
             )}
           </div>
