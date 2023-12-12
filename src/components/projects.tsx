@@ -10,10 +10,10 @@ export async function Projects() {
           href={project.sourceCode}
           rel="noreferrer"
           target="_blank"
-          className="block space-y-1 rounded relative group"
+          className="block space-y-1 relative border border-border p-6 transition-colors hover:border-foreground"
         >
           <div className="space-y-2">
-            <h3 className="flex items-center group-hover:underline group-hover:underline-offset-4">
+            <h3 className="flex items-center">
               <ArrowUpRight className='w-4 h-4 mr-1' /> {project.title}
             </h3>
             <p className="text-muted-foreground">{project.description}</p>
