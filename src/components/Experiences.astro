@@ -1,33 +1,35 @@
 ---
-import { experiences } from '../config/experiences';
+import { experiences } from "../config/experiences";
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
-    dateStyle: "medium",
+	dateStyle: "medium"
 });
 ---
 
 <ul>
-    {experiences.map((experience) => (
-    <li class="relative ml-4 pl-4 pb-4 border-l border-border">
-        <div class="absolute w-4 h-4 rounded-full bg-background border border-border left-0 -translate-x-1/2" />
+	{
+		experiences.map((experience) => (
+			<li class="relative ml-4 border-l border-border pb-4 pl-4">
+				<div class="absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full border border-border bg-background" />
 
-        <h3>{experience.company}</h3>
-        <p class="text-muted-foreground my-2">{experience.description}</p>
+				<h3>{experience.company}</h3>
+				<p class="my-2 text-muted-foreground">{experience.description}</p>
 
-        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-        <time datetime={experience.startsAt}>
-            {dateFormatter.format(new Date(experience.startsAt))}
-        </time>
+				<div class="flex items-center gap-2 text-sm text-muted-foreground">
+					<time datetime={experience.startsAt}>
+						{dateFormatter.format(new Date(experience.startsAt))}
+					</time>
 
-        {experience.endsAt && (
-            <>
-            <span>&bull;</span>
-            <time datetime={experience.endsAt}>
-                {dateFormatter.format(new Date(experience.endsAt))}
-            </time>
-            </>
-        )}
-        </div>
-    </li>
-    ))}
+					{experience.endsAt && (
+						<>
+							<span>&bull;</span>
+							<time datetime={experience.endsAt}>
+								{dateFormatter.format(new Date(experience.endsAt))}
+							</time>
+						</>
+					)}
+				</div>
+			</li>
+		))
+	}
 </ul>

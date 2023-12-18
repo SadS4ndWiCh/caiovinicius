@@ -1,14 +1,18 @@
 ---
 type Props = {
-    title: string;
-    description: string
+	title: string;
+	description: string;
 };
 
 const props = Astro.props;
 ---
 
 <meta charset="UTF-8" />
-<meta name="description" property="og:description" content={props.description} />
+<meta
+	name="description"
+	property="og:description"
+	content={props.description}
+/>
 <meta name="viewport" content="width=device-width" />
 <meta name="generator" content={Astro.generator} />
 
@@ -20,41 +24,41 @@ const props = Astro.props;
 <title>{props.title}</title>
 
 <style is:global>
-    @font-face {
-        font-family: Inter;
-        src: url(/fonts/inter.ttf) format(truetype);
-    }
+	@font-face {
+		font-family: Inter;
+		src: url(/fonts/inter.ttf) format(truetype);
+	}
 
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-    
-    @layer base {
-        :root {
-            --background: 240 10% 3.9%;
-            --foreground: 0 0% 98%;
-            --card: 240 10% 3.9%;
-            --card-foreground: 0 0% 98%;
-            --popover: 240 10% 3.9%;
-            --popover-foreground: 0 0% 98%;
-            --primary: 0 0% 98%;
-            --primary-foreground: 240 5.9% 10%;
-            --secondary: 240 3.7% 15.9%;
-            --secondary-foreground: 0 0% 98%;
-            --muted: 240 3.7% 15.9%;
-            --muted-foreground: 240 5% 64.9%;
-            --accent: 240 3.7% 15.9%;
-            --accent-foreground: 0 0% 98%;
-            --destructive: 0 62.8% 30.6%;
-            --destructive-foreground: 0 0% 98%;
-            --border: 240 3.7% 15.9%;
-            --input: 240 3.7% 15.9%;
-            --ring: 240 4.9% 83.9%;
-            --radius: 0.5rem;
-        }
-    }
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
 
-    body {
-        min-height: 100vh;
-    }
+	@layer base {
+		:root {
+			--background: 240 10% 3.9%;
+			--foreground: 0 0% 98%;
+			--card: 240 10% 3.9%;
+			--card-foreground: 0 0% 98%;
+			--popover: 240 10% 3.9%;
+			--popover-foreground: 0 0% 98%;
+			--primary: 0 0% 98%;
+			--primary-foreground: 240 5.9% 10%;
+			--secondary: 240 3.7% 15.9%;
+			--secondary-foreground: 0 0% 98%;
+			--muted: 240 3.7% 15.9%;
+			--muted-foreground: 240 5% 64.9%;
+			--accent: 240 3.7% 15.9%;
+			--accent-foreground: 0 0% 98%;
+			--destructive: 0 62.8% 30.6%;
+			--destructive-foreground: 0 0% 98%;
+			--border: 240 3.7% 15.9%;
+			--input: 240 3.7% 15.9%;
+			--ring: 240 4.9% 83.9%;
+			--radius: 0.5rem;
+		}
+	}
+
+	body {
+		min-height: 100vh;
+	}
 </style>

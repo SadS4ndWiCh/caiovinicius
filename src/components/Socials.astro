@@ -3,11 +3,17 @@ import { siteConfig } from "../config/site";
 ---
 
 <ul class="flex items-center gap-4">
-    {siteConfig.socials.map(social => (
-        <li>
-            <a href={social.href} target="_blank" class="underline-offset-2 hover:underline">
-                {social.title}
-            </a>
-        </li>
-    ))}
+	{
+		siteConfig.socials.map((social) => (
+			<li>
+				<a
+					href={social.href}
+					target="_blank"
+					class="underline-offset-2 hover:underline"
+				>
+					{social.title}
+				</a>
+			</li>
+		))
+	}
 </ul>

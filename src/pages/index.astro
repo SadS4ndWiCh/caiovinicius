@@ -2,40 +2,39 @@
 import Experiences from "../components/Experiences.astro";
 import Projects from "../components/Projects.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-
 ---
 
 <BaseLayout>
-    <div class="flex flex-col space-y-6">
-      <section class="flex items-center justify-between mt-4">
-        <img
-          src="https://github.com/SadS4ndWiCh.png"
-          width={600}
-          height={600}
-          alt="Foto de perfil do GitHub"
-          class='w-12 h-12 rounded-full'
-        />
-      </section>
+	<div class="flex flex-col space-y-6">
+		<section class="mt-4 flex items-center justify-between">
+			<img
+				src="https://github.com/SadS4ndWiCh.png"
+				width={600}
+				height={600}
+				alt="Foto de perfil do GitHub"
+				class="h-12 w-12 rounded-full"
+			/>
+		</section>
 
-      <section class='space-y-2'>
-        <h1 class="text-2xl font-bold">Hello, I'm Caio Vinícius!</h1>
-        <p>
-          When I'm not coding, I enjoy researching new technologies or exploring new tools, but I
-          can't miss some funny videos to distract myself, some songs to refresh my mind and play
-          some games to relax... maybe...
-        </p>
-      </section>
+		<section class="space-y-2">
+			<h1 class="text-2xl font-bold">Hello, I'm Caio Vinícius!</h1>
+			<p>
+				When I'm not coding, I enjoy researching new technologies or exploring
+				new tools, but I can't miss some funny videos to distract myself, some
+				songs to refresh my mind and play some games to relax... maybe...
+			</p>
+		</section>
 
-      <section class="flex-1 space-y-2">
-        <h2 class="text-xl">Projects</h2>
+		<section class="flex-1 space-y-2">
+			<h2 class="text-xl">Projects</h2>
 
-        <Projects />
-      </section>
+			<Projects />
+		</section>
 
-      <section class="space-y-2">
-        <h2 class="text-xl">Experiences</h2>
+		<section class="space-y-2">
+			<h2 class="text-xl">Experiences</h2>
 
-        <Experiences />
-      </section>
-    </div>
+			<Experiences />
+		</section>
+	</div>
 </BaseLayout>
