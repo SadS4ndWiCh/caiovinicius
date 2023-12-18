@@ -3,10 +3,7 @@ import { fontFamily } from 'tailwindcss/defaultTheme'
 /** @type {import('tailwindcss').Config} */
 export const darkMode = ['class']
 export const content = [
-  './pages/**/*.{ts,tsx}',
-  './components/**/*.{ts,tsx}',
-  './app/**/*.{ts,tsx}',
-  './src/**/*.{ts,tsx}',
+  './src/**/*.astro',
 ]
 export const theme = {
   container: {
@@ -18,7 +15,7 @@ export const theme = {
   },
   extend: {
     fontFamily: {
-      sans: ['var(--font-sans)', fontFamily.sans],
+      sans: ['Inter', ...fontFamily.sans],
     },
     colors: {
       border: 'hsl(var(--border))',
