@@ -1,16 +1,14 @@
 ---
+import { getCollection } from "astro:content";
 import { ArrowUpRight } from "lucide-astro";
 
-import { projects } from "../config/projects";
+const projects = await getCollection('projects')
 ---
-
 <div class="space-y-4">
 	{
-		projects.map((project) => (
+		projects.map(({ slug, data: project }) => (
 			<a
-				href={project.sourceCode}
-				rel="noreferrer"
-				target="_blank"
+				href={`/projects/${slug}`}
 				class="relative block space-y-1 border border-border p-6 transition-colors hover:border-foreground"
 			>
 				<div class="space-y-2">

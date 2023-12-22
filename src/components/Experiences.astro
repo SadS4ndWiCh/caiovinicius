@@ -1,14 +1,16 @@
 ---
-import { experiences } from "../config/experiences";
+import { getCollection } from "astro:content";
 
 const dateFormatter = new Intl.DateTimeFormat(undefined, {
 	dateStyle: "medium"
 });
+
+const experiences = await getCollection('experiences')
 ---
 
 <ul>
 	{
-		experiences.map((experience) => (
+		experiences.map(({ data: experience }) => (
 			<li class="relative ml-4 border-l border-border pb-4 pl-4">
 				<div class="absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full border border-border bg-background" />
 
