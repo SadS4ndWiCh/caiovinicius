@@ -10,5 +10,12 @@ export default defineConfig({
 			enabled: true
 		}
 	}),
-	integrations: [tailwind({ applyBaseStyles: false })]
+	integrations: [tailwind({ applyBaseStyles: false })],
+	i18n: {
+		defaultLocale: "en",
+		locales: ["en", "pt-br"],
+		routing: {
+			prefixDefaultLocale: true
+		}
+	},
 });
