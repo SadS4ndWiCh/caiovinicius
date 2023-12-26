@@ -1,0 +1,54 @@
+---
+import type { GetStaticPaths } from "astro";
+
+import Experiences from "../../components/Experiences.astro";
+import Projects from "../../components/Projects.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import { allLangs, useLang, type Lang } from '../../i18n';
+
+type Params = {
+	lang: Lang
+}
+
+const { lang } = Astro.params as Params;
+
+const t = useLang(lang);
+
+export const getStaticPaths = (() => {
+	return allLangs.map(lang => ({
+		params: { lang }
+	}));
+}) satisfies GetStaticPaths;
+---
+
+<BaseLayout>
+	<div class="flex flex-col space-y-6">
+		<section class="mt-4 flex items-center justify-between">
+			<img
+				src="https://github.com/SadS4ndWiCh.png"
+				width={600}
+				height={600}
+				alt="Foto de perfil do GitHub"
+				class="h-12 w-12 rounded-full"
+			/>
+		</section>
+
+		<section class="space-y-2">
+			<h1 class="text-2xl font-bold">{t('header.title')}</h1>
+			<p>{t('header.description')}</p>
+		</section>
+
+		<section class="flex-1 space-y-2">
+			<h2 class="text-xl">{t('projects.title')}</h2>
+
+			<Projects />
+		</section>
+
+		<section class="space-y-2">
+			<h2 class="text-xl">{t('experiences.title')}</h2>
+
+			<Experiences />
+		</section>
+	</div>
+</BaseLayout>

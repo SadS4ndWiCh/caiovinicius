@@ -1,37 +1,46 @@
 ---
 import { getCollection } from "astro:content";
 
-const dateFormatter = new Intl.DateTimeFormat(undefined, {
-	dateStyle: "medium"
-});
+import { type Lang } from "~/i18n";
+
+type Params = {
+	lang: Lang
+}
 
 const experiences = await getCollection('experiences')
+const { lang } = Astro.params as Params;
+
+const dateFormatter = new Intl.DateTimeFormat(lang, {
+	dateStyle: "medium"
+});
 ---
 
 <ul>
 	{
-		experiences.map(({ data: experience }) => (
-			<li class="relative ml-4 border-l border-border pb-4 pl-4">
-				<div class="absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full border border-border bg-background" />
+		experiences
+			.filter(experience => experience.slug.startsWith(lang))
+			.map(({ data: experience }) => (
+				<li class="relative ml-4 border-l border-border pb-4 pl-4">
+					<div class="absolute left-0 h-4 w-4 -translate-x-1/2 rounded-full border border-border bg-background" />
 
-				<h3>{experience.company}</h3>
-				<p class="my-2 text-muted-foreground">{experience.description}</p>
+					<h3>{experience.company}</h3>
+					<p class="my-2 text-muted-foreground">{experience.description}</p>
 
-				<div class="flex items-center gap-2 text-sm text-muted-foreground">
-					<time datetime={experience.startsAt}>
-						{dateFormatter.format(new Date(experience.startsAt))}
-					</time>
+					<div class="flex items-center gap-2 text-sm text-muted-foreground">
+						<time datetime={experience.startsAt}>
+							{dateFormatter.format(new Date(experience.startsAt))}
+						</time>
 
-					{experience.endsAt && (
-						<>
-							<span>&bull;</span>
-							<time datetime={experience.endsAt}>
-								{dateFormatter.format(new Date(experience.endsAt))}
-							</time>
-						</>
-					)}
-				</div>
-			</li>
+						{experience.endsAt && (
+							<>
+								<span>&bull;</span>
+								<time datetime={experience.endsAt}>
+									{dateFormatter.format(new Date(experience.endsAt))}
+								</time>
+							</>
+						)}
+					</div>
+				</li>
 		))
 	}
 </ul>
