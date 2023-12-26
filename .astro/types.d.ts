@@ -175,18 +175,32 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"experiences": {
-"compass-product-designer.md": {
-	id: "compass-product-designer.md";
-  slug: "compass-product-designer";
+"en/compass-product-designer.md": {
+	id: "en/compass-product-designer.md";
+  slug: "en/compass-product-designer";
+  body: string;
+  collection: "experiences";
+  data: InferEntrySchema<"experiences">
+} & { render(): Render[".md"] };
+"pt-br/compass-product-designer.md": {
+	id: "pt-br/compass-product-designer.md";
+  slug: "pt-br/compass-product-designer";
   body: string;
   collection: "experiences";
   data: InferEntrySchema<"experiences">
 } & { render(): Render[".md"] };
 };
 "projects": {
-"fatequense.md": {
-	id: "fatequense.md";
-  slug: "fatequense";
+"en/fatequense.md": {
+	id: "en/fatequense.md";
+  slug: "en/fatequense";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"pt-br/fatequense.md": {
+	id: "pt-br/fatequense.md";
+  slug: "pt-br/fatequense";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
