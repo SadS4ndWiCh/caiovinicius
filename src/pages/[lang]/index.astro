@@ -1,11 +1,11 @@
 ---
 import type { GetStaticPaths } from "astro";
 
-import Experiences from "../../components/Experiences.astro";
-import Projects from "../../components/Projects.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import Experiences from "~/components/Experiences.astro";
+import Projects from "~/components/Projects.astro";
+import BaseLayout from "~/layouts/BaseLayout.astro";
 
-import { allLangs, useLang, type Lang } from '../../i18n';
+import { allLangs, defaultLang, useLang, type Lang } from '~/i18n';
 
 type Params = {
 	lang: Lang
@@ -16,7 +16,7 @@ const { lang } = Astro.params as Params;
 const t = useLang(lang);
 
 export const getStaticPaths = (() => {
-	return allLangs.map(lang => ({
+	return allLangs.filter(lang => lang !== defaultLang).map(lang => ({
 		params: { lang }
 	}));
 }) satisfies GetStaticPaths;
@@ -26,9 +26,11 @@ export const getStaticPaths = (() => {
 	<div class="flex flex-col space-y-6">
 		<section class="mt-4 flex items-center justify-between">
 			<img
-				src="https://github.com/SadS4ndWiCh.png"
-				width={600}
-				height={600}
+				src="/images/avatar.avif"
+				width={48}
+				height={48}
+				decoding="async"
+				loading="lazy"
 				alt="Foto de perfil do GitHub"
 				class="h-12 w-12 rounded-full"
 			/>
