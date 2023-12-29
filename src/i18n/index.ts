@@ -19,7 +19,11 @@ export type Lang = keyof typeof ui;
 type TextCode = keyof typeof ui[Lang];
 
 export const defaultLang = 'en';
-export const allLangs = Object.keys(ui);
+export const allLangs = Object.keys(ui) as Lang[];
+export const langs: Record<Lang, string> = {
+    en: 'English',
+    'pt-br': 'Português do Brasil'
+}
 
 export const useLang = (lang: Lang) => {
     return (textCode: TextCode) => ui[lang][textCode];
