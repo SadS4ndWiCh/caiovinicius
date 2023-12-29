@@ -25,12 +25,14 @@ const { lang: pageLang } = Astro.params as Params;
 </select>
 
 <script>
+    import { defaultLang } from "~/i18n";
+
     document.querySelector('select')?.addEventListener('change', (e) => {
         if (!(e.currentTarget instanceof HTMLSelectElement)) return;
 
-        const lang = e.currentTarget.value;
+        const lang = e.currentTarget.value === defaultLang ? '' : e.currentTarget.value;
         const normalizedPathname = window.location.pathname.replace(/^\/([a-z]{2}-?[a-z]{0,2})/, '');
 
-        window.location.href = `/${lang}${normalizedPathname}`;
+        window.location.href = `${lang}${normalizedPathname}`;
     });
 </script>
