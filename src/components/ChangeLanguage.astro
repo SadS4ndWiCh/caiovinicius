@@ -1,16 +1,16 @@
 ---
-import { allLangs, langs, type Lang } from '~/i18n';
+import { allLangs, langs, useLang } from '~/i18n';
+import { getLanguageFromURL } from '~/i18n/utils';
 
-type Params = {
-	lang: Lang
-}
+const pageLang = getLanguageFromURL(Astro.url.pathname);
 
-const { lang: pageLang } = Astro.params as Params;
+const t = useLang(pageLang);
 ---
 
 <select
     name="language"
     id="language"
+    aria-label={t('change-language_select.aria-label')}
     class="flex items-center justify-between whitespace-nowrap rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1"
 >
     {allLangs.map(lang => (
