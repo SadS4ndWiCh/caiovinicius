@@ -1,14 +1,10 @@
 ---
 import { getCollection } from "astro:content";
-
-import { type Lang } from "~/i18n";
-
-type Params = {
-	lang: Lang
-}
+import { getLanguageFromURL } from "~/i18n/utils";
 
 const experiences = await getCollection('experiences')
-const { lang } = Astro.params as Params;
+
+const lang = getLanguageFromURL(Astro.url.pathname);
 
 const dateFormatter = new Intl.DateTimeFormat(lang, {
 	dateStyle: "medium"
