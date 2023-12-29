@@ -5,6 +5,8 @@ export const ui = {
 
         'projects.title': 'Projects',
         'experiences.title': 'Experiences',
+
+        'change-language_select.aria-label': 'Set Language'
     },
     'pt-br': {
         'header.title': 'Olá, Me chamo Caio Vinícius',
@@ -12,6 +14,8 @@ export const ui = {
 
         'projects.title': 'Projetos',
         'experiences.title': 'Experiências',
+
+        'change-language_select.aria-label': 'Escolher outra língua'
     }
 } as const;
 
