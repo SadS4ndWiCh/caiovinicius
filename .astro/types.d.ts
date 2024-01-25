@@ -206,6 +206,22 @@ declare module 'astro:content' {
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
 };
+"toys": {
+"en/susy.md": {
+	id: "en/susy.md";
+  slug: "en/susy";
+  body: string;
+  collection: "toys";
+  data: any
+} & { render(): Render[".md"] };
+"pt-br/susy.md": {
+	id: "pt-br/susy.md";
+  slug: "pt-br/susy";
+  body: string;
+  collection: "toys";
+  data: any
+} & { render(): Render[".md"] };
+};
 
 	};
 

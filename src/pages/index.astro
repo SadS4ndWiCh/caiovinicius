@@ -1,6 +1,7 @@
 ---
 import Experiences from "~/components/Experiences.astro";
 import Projects from "~/components/Projects.astro";
+import ToyProjects from "~/components/ToyProjects.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
 import { defaultLang, useLang } from '~/i18n';
@@ -31,6 +32,12 @@ const t = useLang(defaultLang);
 			<h2 class="text-xl">{t('projects.title')}</h2>
 
 			<Projects />
+		</section>
+
+    <section class="flex-1 space-y-2">
+			<h2 class="text-xl">{t('toys.title')}</h2>
+
+			<ToyProjects />
 		</section>
 
 		<section class="space-y-2">
