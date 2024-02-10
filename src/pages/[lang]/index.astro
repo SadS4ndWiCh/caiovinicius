@@ -6,13 +6,9 @@ import Projects from "~/components/Projects.astro";
 import ToyProjects from "~/components/ToyProjects.astro";
 import BaseLayout from "~/layouts/BaseLayout.astro";
 
-import { allLangs, defaultLang, useLang, type Lang } from '~/i18n';
+import { allLangs, defaultLang, useLang } from '~/i18n';
 
-type Params = {
-	lang: Lang
-}
-
-const { lang } = Astro.params as Params;
+const { lang } = Astro.params;
 
 const t = useLang(lang);
 
