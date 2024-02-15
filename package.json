@@ -1,9 +1,7 @@
 {
 	"name": "caiovinicius",
 	"description": "This is my portfolio where I detail my projects.",
-	"author": {
-		"name": "SadS4ndWiCh <caiocamargo.ct@gmail.com>"
-	},
+	"author": "SadS4ndWiCh <caiocamargo.ct@gmail.com>",
 	"private": true,
 	"scripts": {
 		"dev": "astro dev",
