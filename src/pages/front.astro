@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+import PageLayout from "~/layouts/PageLayout.astro";
+
+import frontImage from "../assets/images/frontend.png";
+---
+
+<PageLayout title="Front">
+  <div class="flex-1 flex flex-col sm:flex-row gap-6 max-w-3xl mx-auto my-8 px-5">
+    <div class="relative" transition:name="front" >
+      <Image src={frontImage} loading="eager" alt="Front-End" class="w-full rounded-2xl" />
+
+      <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
+        Front-End
+      </h1>
+    </div>
+
+    <div>
+      <p>Why?</p>
+    </div>
+  </div>
+</PageLayout>
