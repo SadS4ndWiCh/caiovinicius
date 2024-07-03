@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import Alert from "~/components/common/Alert.astro";
 import Footer from "~/components/common/Footer.astro";
 import Header from "~/components/common/Header.astro";
 
@@ -21,6 +22,8 @@ const title = Astro.props.title
   <ViewTransitions />
 </head>
 <body class="antialiased">
+  <Alert>This website is currently under development.</Alert>
+
   <Header />
   <slot />
   <Footer />
