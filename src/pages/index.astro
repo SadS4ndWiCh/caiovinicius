@@ -1,109 +1,41 @@
 ---
-import { Image } from "astro:assets";
-import PageLayout from "~/layouts/PageLayout.astro";
+import { Image } from "astro:assets"
 
-import backImage from "../assets/images/backend.png";
-import frontImage from "../assets/images/frontend.png";
-import gamesImage from "../assets/images/games.png";
-import githubImage from "../assets/images/github.jpg";
-import linkedinImage from "../assets/images/linkedin.jpg";
-import aboutImage from "../assets/images/mononoke.png";
-import musicImage from "../assets/images/music.png";
-import devImage from "../assets/images/violet.png";
+import bannerImage from "~/assets/banner.png";
+
+import PageLayout from "~/layouts/PageLayout.astro"
 ---
 
 <PageLayout>
-  <main class="grid grid-cols-2 md:grid-cols-4 gap-5 max-w-3xl mx-auto my-8 px-5">
-    <!-- Column 1 -->
-    <div class="flex flex-col gap-5">
-      <a href="/about">
-        <div class="relative" transition:name="about">
-          <Image src={aboutImage} loading="eager" alt="Caio Vinícius" class="w-full rounded-2xl" />
+  <Image
+    src={bannerImage}
+    alt="A cool anime girl eyes in grayscale"
+    loading="eager"
+  />
 
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            Caio Vinícius
-          </h1>
-        </div>
+  <section class="mt-8 space-y-4">
+    <h1>~ Caio Vinícius</h1>
+    <p>
+      A simple person that loves music and anime, oh, and programming obvious... He 
+      knows something but wants to know more.
+    </p>
+  </section>
+
+  <ul class="flex items-center gap-4 mt-4 text-zinc-500">
+    <li class="hover:text-zinc-900">
+      <a href="https://github.com/SadS4ndWiCh" target="_blank" rel="norefeerer">
+        GitHub
       </a>
-
-      <a href="/front">
-        <div class="relative" transition:name="front">
-          <Image src={frontImage} loading="eager" alt="Front-End" class="w-full rounded-2xl" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            Front-End
-          </h1>
-        </div>
+    </li>
+    <li class="hover:text-zinc-900">
+      <a href="https://linkedin.com/in/caiocamargo007" target="_blank" rel="norefeerer">
+        LinkedIn
       </a>
-    </div>
-
-    <!-- Column 2 -->
-    <div class="flex flex-col gap-5">
-      <a href="/dev">
-        <div class="relative" transition:name="dev">
-          <Image src={devImage} loading="eager" alt="Developer" class="w-full rounded-2xl" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            Developer
-          </h1>
-        </div>
+    </li>
+    <li class="hover:text-zinc-900">
+      <a href="mailto:caiocamargo.ct@gmail.com">
+        Email
       </a>
-      
-      <a href="/back" class="flex-1 flex">
-        <div class="flex-1 relative" transition:name="back">
-          <Image src={backImage} loading="eager" alt="Back-End" class="h-full w-full rounded-2xl object-cover" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            Back-End
-          </h1>
-        </div>
-      </a>
-    </div>
-
-    <!-- Column 3 -->
-    <div class="flex flex-col gap-5">
-      <a href="/games">
-        <div class="relative" transition:name="games">
-          <Image src={gamesImage} loading="eager" alt="Play Games" class="w-full rounded-2xl" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            Play Games
-          </h1>
-        </div>
-      </a>
-      
-      <a href="https://github.com/SadS4ndWiCh" target="_blank" rel="noopener noreferrer" class="flex flex-1">
-        <div class="flex flex-1 relative">
-          <Image src={githubImage} loading="eager" alt="GitHub" class="h-full w-full rounded-2xl object-cover" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            GitHub
-          </h1>
-        </div>
-      </a>
-    </div>
-
-    <!-- Column 4 -->
-    <div class="flex flex-col gap-5">
-      <a href="/music">
-        <div class="relative" transition:name="music">
-          <Image src={musicImage} loading="eager" alt="Listen to Music" class="w-full rounded-2xl" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            Listen to Music
-          </h1>
-        </div>
-      </a>
-      
-      <a href="https://linkedin.com/in/caiocamargo007" target="_blank" rel="noopener noreferrer" class="flex flex-1">
-        <div class="relative" class="flex flex-1 relative">
-          <Image src={linkedinImage} loading="eager" alt="LinkedIn" class="h-full w-full rounded-2xl object-cover" />
-
-          <h1 class="absolute inset-0 flex flex-col justify-end p-6 rounded-2xl text-lg md:text-2xl text-white font-medium bg-gradient-to-b from-transparent to-[#18181b]/90">
-            LinkedIn
-          </h1>
-        </div>
-      </a>
-    </div>
-  </main>
+    </li>
+  </ul>
 </PageLayout>
