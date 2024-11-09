@@ -1,9 +1,12 @@
 ---
 import { Image } from "astro:assets"
+import { getCollection } from "astro:content";
 
 import bannerImage from "~/assets/banner.png";
 
 import PageLayout from "~/layouts/PageLayout.astro"
+
+const projects = await getCollection("projects");
 ---
 
 <PageLayout>
@@ -38,4 +41,19 @@ import PageLayout from "~/layouts/PageLayout.astro"
       </a>
     </li>
   </ul>
+
+  <section class="mt-4">
+    <h2>~ Projects</h2>
+
+    <ul class="mt-2 space-y-2">
+        { projects.map(project => (
+            <li class="space-y-1" aria-label={project.data.name}>
+                <a href={project.data.sourceCode} target="_blank" rel="norefeerer" class="underline underline-offset-2">
+                    <h3>{project.data.name}</h3>
+                </a>
+                <p>{project.data.description}</p>
+            </li>
+        )) }
+    </ul>
+  </section>
 </PageLayout>
