@@ -16,31 +16,13 @@ const projects = await getCollection("projects");
     loading="eager"
   />
 
-  <section class="mt-8 space-y-4">
+  <section class="mt-8 space-y-2">
     <h1>~ Caio Vinícius <span class="text-zinc-500">/ˈka.ju viˈni.sjus/</span></h1>
     <p>
       A simple person that loves music and anime, oh, and programming obvious... He 
       knows something but wants to know more.
     </p>
   </section>
-
-  <ul class="flex items-center gap-4 mt-4 text-zinc-500">
-    <li class="hover:text-zinc-900">
-      <a href="https://github.com/SadS4ndWiCh" target="_blank" rel="norefeerer">
-        GitHub
-      </a>
-    </li>
-    <li class="hover:text-zinc-900">
-      <a href="https://linkedin.com/in/caiocamargo007" target="_blank" rel="norefeerer">
-        LinkedIn
-      </a>
-    </li>
-    <li class="hover:text-zinc-900">
-      <a href="mailto:caiocamargo.ct@gmail.com">
-        Email
-      </a>
-    </li>
-  </ul>
 
   <section class="mt-4">
     <h2>~ Projects</h2>
@@ -55,5 +37,17 @@ const projects = await getCollection("projects");
             </li>
         )) }
     </ul>
+  </section>
+
+  <section class="mt-4 space-y-2">
+    <h2>~ Contact me</h2>
+
+    <p>
+        If you would like to contact me about an opportunity or to share experiences, 
+        please feel free to do so at <a href="https://linkedin.com/in/caiocamargo007" class="underline underline-offset-2" target="_blank" rel="norefereer">Linkedin</a> 
+        or <a href="mailto:hi@caiovinicius.xyz" class="underline underline-offset-2" target="_blank" rel="norefereer">hi@caiovinicius.xyz</a>.
+    </p>
+
+    <p>Also, check out my <a href="https://github.com/SadS4ndWiCh" class="underline underline-offset-2" target="_blank" rel="norefereer">GitHub</a>.</p>
   </section>
 </PageLayout>
