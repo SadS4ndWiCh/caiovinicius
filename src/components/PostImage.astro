@@ -1,0 +1,19 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    src: string;
+    alt: string;
+    class?: string;
+}
+---
+
+<figure class:list={["w-fit h-fit p-2 bg-zinc-200", Astro.props.class]}>
+    <Image
+        src={Astro.props.src}
+        alt={Astro.props.alt}
+        width="100"
+        height="100"
+        loading="early"
+    />
+</figure>

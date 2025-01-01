@@ -1,53 +1,47 @@
 ---
-import { Image } from "astro:assets"
-import { getCollection } from "astro:content";
-
-import bannerImage from "~/assets/banner.png";
-
+import PostImage from "~/components/PostImage.astro"
 import PageLayout from "~/layouts/PageLayout.astro"
-
-const projects = await getCollection("projects");
 ---
 
 <PageLayout>
-  <Image
-    src={bannerImage}
-    alt="A cool anime girl eyes in grayscale"
-    loading="eager"
-  />
+    <main class="relative space-y-2">
+        <h1>Caio Vinícius</h1>
+        <p>
+            Salutations! I’m a Full-Stack Developer that transmute a piece of nothing 
+            into a piece of something.
+        </p>
+        <p>
+            In my free time I watch animes and listen a bit of music.
+        </p>
+        <p>
+            If you would like to contact me about an opportunity or to share experiences, 
+            please feel free to do so.
+        </p>
 
-  <section class="mt-8 space-y-2">
-    <h1>~ Caio Vinícius <span class="text-zinc-500">/ˈka.ju viˈni.sjus/</span></h1>
-    <p>
-      A simple person that loves music and anime, oh, and programming obvious... He 
-      knows something but wants to know more.
-    </p>
-  </section>
-
-  <section class="mt-4">
-    <h2>~ Projects</h2>
-
-    <ul class="mt-2 space-y-2">
-        { projects.map(project => (
-            <li class="space-y-1" aria-label={project.data.name}>
-                <a href={project.data.sourceCode} target="_blank" rel="norefeerer" class="underline underline-offset-2">
-                    <h3>{project.data.name}</h3>
+        <ul class="flex items-center gap-4">
+            <li>
+                <a href="http://linkedin.com/in/caiocamargo007" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">
+                    LinkedIn
                 </a>
-                <p>{project.data.description}</p>
             </li>
-        )) }
-    </ul>
-  </section>
+            <li>
+                <a href="http://github.com/SadS4ndWiCh" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">
+                    GitHub
+                </a>
+            </li>
+            <li>
+                <a href="mailto:hi@caiovinicius.xyz" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">
+                    hi@caiovinicius.xyz
+                </a>
+            </li>
+        </ul>
 
-  <section class="mt-4 space-y-2">
-    <h2>~ Contact me</h2>
-
-    <p>
-        If you would like to contact me about an opportunity or to share experiences, 
-        please feel free to do so at <a href="https://linkedin.com/in/caiocamargo007" class="underline underline-offset-2" target="_blank" rel="norefereer">Linkedin</a> 
-        or <a href="mailto:hi@caiovinicius.xyz" class="underline underline-offset-2" target="_blank" rel="norefereer">hi@caiovinicius.xyz</a>.
-    </p>
-
-    <p>Also, check out my <a href="https://github.com/SadS4ndWiCh" class="underline underline-offset-2" target="_blank" rel="norefereer">GitHub</a>.</p>
-  </section>
+        <!-- ITS WORKS SO ITS GOOD -->
+        <div class="flex flex-wrap pt-4 justify-center lg:absolute lg:top-0 lg:left-0 lg:flex-col lg:-translate-x-full lg:pr-8">
+            <PostImage src="/images/skip-and-loafer.png" alt="Skip and Loafer" class="-rotate-6" />
+            <PostImage src="/images/look-back.png" alt="Skip and Loafer" class="rotate-3 lg:-mt-10 lg:-translate-x-5" />
+            <PostImage src="/images/suzume.png" alt="Skip and Loafer" class="rotate-12 lg:-mt-10" />
+            <PostImage src="/images/overlord.png" alt="Skip and Loafer" class="rotate-15 lg:-mt-10" />
+        </div>
+    </main>
 </PageLayout>
