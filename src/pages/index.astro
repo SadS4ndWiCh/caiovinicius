@@ -5,6 +5,10 @@ import PageLayout from "~/layouts/PageLayout.astro"
 
 <PageLayout>
     <main class="relative space-y-2">
+        <figure class="p-1 rounded-2xl bg-white border border-zinc-200 shadow-sm">
+            <img src="/images/mai_crop.jpg" alt="Mai Minakami" class="rounded-xl">
+        </figure>
+
         <h1>Caio Vinícius</h1>
         <p>
             Salutations! I’m a Full-Stack Developer that transmute a piece of nothing 
@@ -18,7 +22,7 @@ import PageLayout from "~/layouts/PageLayout.astro"
             please feel free to do so.
         </p>
 
-        <ul class="flex items-center gap-4">
+        <ul class="flex flex-wrap items-center gap-4 sm:flex-nowrap">
             <li>
                 <a href="http://linkedin.com/in/caiocamargo007" target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">
                     LinkedIn
@@ -45,13 +49,5 @@ import PageLayout from "~/layouts/PageLayout.astro"
                 </a>
             </li>
         </ul>
-
-        <!-- ITS WORKS SO ITS GOOD -->
-        <div class="flex flex-wrap pt-4 justify-center lg:absolute lg:top-0 lg:left-0 lg:flex-col lg:-translate-x-full lg:pr-8">
-            <PostImage src="/images/skip-and-loafer.png" alt="Skip and Loafer" class="-rotate-6" />
-            <PostImage src="/images/look-back.png" alt="Skip and Loafer" class="rotate-3 lg:-mt-10 lg:-translate-x-5" />
-            <PostImage src="/images/suzume.png" alt="Skip and Loafer" class="rotate-12 lg:-mt-10" />
-            <PostImage src="/images/overlord.png" alt="Skip and Loafer" class="rotate-15 lg:-mt-10" />
-        </div>
     </main>
 </PageLayout>
