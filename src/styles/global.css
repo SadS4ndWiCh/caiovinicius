@@ -9,3 +9,5 @@
     src: url(/fonts/inter.ttf) format(truetype);
     font-display: swap;
 }
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
