@@ -8,8 +8,7 @@
 		"build": "astro build",
 		"start": "astro start",
 		"preview": "astro preview",
-		"astro": "astro",
-		"format": "prettier -w . --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
+		"astro": "astro"
 	},
 	"dependencies": {
 		"@astrojs/vercel": "^10.0.2",
